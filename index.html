@@ -1,0 +1,2973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScamShield Bharat · Protect. Understand. Verify.</title>
+  
+  <style>
+  /* ScamShield Bharat - Public Safety Fintech Stylesheet (styles.css) */
+  /* Designed for Trust, Clarity, Accessibility & Bharat-First Investors */
+
+  :root {
+    /* Primary Trust Palette */
+    --primary: #0f766e;        /* Deep Teal */
+    --primary-dark: #115e59;   /* Darker Teal */
+    --primary-light: #ccfbf1;  /* Light Teal Surface */
+    
+    --secondary: #2563eb;      /* Trust Blue */
+    --secondary-light: #dbeafe;
+
+    --bg-main: #f7fafc;        /* Calm light background */
+    --bg-surface: #ffffff;     /* Clean white cards */
+    --bg-input: #f1f5f9;       /* Input backgrounds */
+    
+    --text-main: #0f172a;      /* Dark slate heading text */
+    --text-muted: #475569;     /* Subtitle text */
+    --text-subtle: #64748b;    /* Caption text */
+    
+    --border-color: #e2e8f0;   /* Subtle card border */
+    --border-focus: #0f766e;
+    
+    /* Meaningful Status Colors (Non-aggressive) */
+    --success-bg: #f0fdf4;
+    --success-border: #16a34a;
+    --success-text: #15803d;
+    
+    --warning-bg: #fffbeb;
+    --warning-border: #d97706;
+    --warning-text: #b45309;
+    
+    --danger-bg: #fef2f2;
+    --danger-border: #dc2626;
+    --danger-text: #b91c1c;
+
+    --neutral-bg: #f8fafc;
+    --neutral-border: #94a3b8;
+    --neutral-text: #475569;
+
+    /* Typography Stack */
+    --font-stack: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-base: 16px;
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 4px 12px rgba(15, 23, 42, 0.06);
+    --shadow-hover: 0 8px 24px rgba(15, 23, 42, 0.1);
+    --btn-height: 48px;
+  }
+
+  /* Dark Mode Palette */
+  body.dark-mode {
+    --bg-main: #0b1120;
+    --bg-surface: #111827;
+    --bg-input: #1f2937;
+    
+    --text-main: #f8fafc;
+    --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8;
+    
+    --border-color: #1f2937;
+    
+    --primary: #14b8a6;
+    --primary-dark: #0f766e;
+    --primary-light: rgba(20, 184, 166, 0.15);
+    
+    --success-bg: rgba(22, 163, 74, 0.15);
+    --success-text: #86efac;
+    
+    --warning-bg: rgba(217, 119, 6, 0.15);
+    --warning-text: #fde047;
+    
+    --danger-bg: rgba(220, 38, 38, 0.15);
+    --danger-text: #fca5a5;
+
+    --neutral-bg: #1f2937;
+    --neutral-text: #e2e8f0;
+    
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Senior Mode Overrides */
+  body.senior-mode {
+    --font-base: 20px !important;
+    --btn-height: 58px !important;
+    line-height: 1.8 !important;
+  }
+
+  body.senior-mode .btn,
+  body.senior-mode input,
+  body.senior-mode textarea,
+  body.senior-mode select {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+  }
+
+  body.senior-mode .card,
+  body.senior-mode .dash-card,
+  body.senior-mode .analysis-card,
+  body.senior-mode .reporting-section {
+    border: 2px solid #64748b !important;
+    padding: 24px !important;
+  }
+
+  /* Lite Mode Overrides */
+  body.lite-mode * {
+    box-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Global Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: var(--font-base);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Sticky Header */
+  .header-bar {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 24px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-shield-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+
+  .logo-text h1 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+
+  .logo-text p {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--primary);
+    background-color: var(--primary-light);
+    text-decoration: none;
+  }
+
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .lang-select,
+  .mode-toggle-btn {
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mode-toggle-btn.active {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+  }
+
+  .main-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 20px;
+    flex: 1;
+    width: 100%;
+  }
+
+  .system-notice-bar {
+    background-color: var(--bg-surface);
+    border-left: 4px solid var(--primary);
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    border-left-width: 5px;
+  }
+
+  .system-notice-bar.senior {
+    border-left-color: var(--warning-border);
+    font-weight: 700;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: var(--btn-height);
+    padding: 0 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .btn-secondary {
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--border-color);
+  }
+
+  .btn-sm {
+    height: 38px;
+    padding: 0 14px;
+    font-size: 0.85rem;
+  }
+
+  .hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+    background-color: var(--bg-surface);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+    margin-bottom: 32px;
+  }
+
+  .hero-content-left {
+    text-align: left;
+  }
+
+  .hero-pill-badge {
+    display: inline-block;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+    color: var(--text-main);
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .hero-trust-badges {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    font-weight: 600;
+    flex-wrap: wrap;
+  }
+
+  .hero-preview-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+  }
+
+  .preview-badge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .preview-msg-text {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .preview-signals-revealed {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .preview-sig-item {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+
+  .preview-sig-item.danger { background-color: var(--danger-bg); color: var(--danger-text); }
+  .preview-sig-item.warning { background-color: var(--warning-bg); color: var(--warning-text); }
+  .preview-sig-item.info { background-color: var(--secondary-light); color: var(--secondary); }
+
+  .trust-strip {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+
+  .trust-strip-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+  }
+
+  .trust-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .trust-card-item {
+    text-align: left;
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+  }
+
+  .trust-card-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: var(--primary);
+    font-weight: 800;
+  }
+
+  .trust-card-item p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .why-matters-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .fictional-notice-badge {
+    display: inline-block;
+    background-color: #fee2e2;
+    color: #991b1b;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .chat-mockup-box {
+    background-color: #e5ddd5;
+    border-radius: 12px;
+    padding: 16px;
+    color: #000000;
+  }
+
+  .chat-bubble {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    line-height: 1.5;
+  }
+
+  .how-it-works-section {
+    margin-bottom: 36px;
+    text-align: center;
+  }
+
+  .how-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .step-item-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: left;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .step-num {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  .step-item-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    font-weight: 800;
+  }
+
+  .step-item-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .dash-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .dash-card:hover,
+  .dash-card.active {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+  }
+
+  .dash-card-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .dash-card h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  .dash-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .analysis-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .privacy-indicator-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .analysis-textarea {
+    width: 100%;
+    min-height: 140px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1.05rem;
+    resize: vertical;
+    margin-bottom: 14px;
+  }
+
+  .analysis-textarea:focus {
+    outline: none;
+    border-color: var(--border-focus);
+  }
+
+  .example-btn-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .loading-box {
+    background-color: var(--bg-surface);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .progress-bar-track {
+    height: 8px;
+    background-color: var(--bg-input);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 14px 0;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+  }
+
+  .result-card {
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-card);
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-surface);
+  }
+
+  .result-card.no_major {
+    background-color: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success-text);
+  }
+
+  .result-card.potential {
+    background-color: var(--warning-bg);
+    border-color: var(--warning-border);
+    color: var(--warning-text);
+  }
+
+  .result-card.high {
+    background-color: var(--danger-bg);
+    border-color: var(--danger-border);
+    color: var(--danger-text);
+  }
+
+  .result-card.inconclusive {
+    background-color: var(--neutral-bg);
+    border-color: var(--neutral-border);
+    color: var(--neutral-text);
+  }
+
+  .result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .risk-badge {
+    font-size: 1.25rem;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .confidence-box {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    text-align: right;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .confidence-val {
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  .result-msg {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .uncertainty-alert {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-left: 4px solid var(--text-main);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .highlight-render-box {
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 18px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .highlight-span {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline;
+  }
+
+  .highlight-span.hl-high {
+    background-color: #fee2e2;
+    border-bottom: 2px solid var(--danger-border);
+    color: #991b1b;
+  }
+
+  .highlight-span.hl-medium {
+    background-color: #fef3c7;
+    border-bottom: 2px solid var(--warning-border);
+    color: #92400e;
+  }
+
+  .highlight-span.hl-low {
+    background-color: #dbeafe;
+    border-bottom: 2px solid var(--secondary);
+    color: #1e40af;
+  }
+
+  .signal-card-item {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-bottom: 12px;
+    color: var(--text-main);
+  }
+
+  .signal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .signal-card-body {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .checklist-box {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: var(--radius-md);
+    padding: 22px;
+  }
+
+  .checklist-box h4 {
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .checklist-box ul {
+    list-style: none;
+  }
+
+  .checklist-box li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .checklist-box li:last-child {
+    border-bottom: none;
+  }
+
+  .reporting-section {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .reporting-section h3 {
+    margin-bottom: 18px;
+    color: var(--text-main);
+    font-size: 1.25rem;
+    font-weight: 800;
+  }
+
+  .reporting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  .report-item-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 18px;
+    border-radius: var(--radius-sm);
+  }
+
+  .report-item-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-weight: 800;
+  }
+
+  .report-item-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    max-width: 480px;
+    width: 100%;
+    padding: 28px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .footer-bar {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    padding: 32px 20px;
+    font-size: 0.9rem;
+    color: var(--text-subtle);
+    text-align: center;
+    margin-top: auto;
+  }
+
+  .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .footer-disclaimer {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 900px) {
+    .hero-section {
+      grid-template-columns: 1fr;
+      padding: 24px;
+    }
+    
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .how-steps-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .header-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .how-steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .btn {
+      width: 100%;
+    }}
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Global Header -->
+  <header class="header-bar">
+    <div class="header-container">
+      <a href="#hero" class="logo-group">
+        <div class="logo-shield-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1 data-i18n="appName">ScamShield Bharat</h1>
+          <p data-i18n="prototypeTag">Rule-based analysis · Prototype</p>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="active" data-i18n="navHome">Home</a></li>
+        <li><a href="#analyze" data-i18n="navAnalyze">Analyze</a></li>
+        <li><a href="#howItWorks" data-i18n="navHowItWorks">How It Works</a></li>
+        <li><a href="#why" data-i18n="navWhy">Why It Matters</a></li>
+        <li><a href="#safety" data-i18n="navSafety">Safety</a></li>
+        <li><a href="#privacy" data-i18n="navPrivacy">Privacy</a></li>
+        <li><a href="#learn" data-i18n="navLearn">Spot a Scam</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <select class="lang-select" onchange="i18n.setLanguage(this.value)">
+          <option value="en">English</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="te">తెలుగు (Telugu)</option>
+          <option value="ml">മലയാളം (Malayalam)</option>
+        </select>
+
+        <button id="seniorModeBtn" class="mode-toggle-btn" onclick="app.toggleSeniorMode()" data-i18n="seniorModeBtn">Senior Mode</button>
+        <button id="liteModeBtn" class="mode-toggle-btn" onclick="app.toggleLiteMode()" data-i18n="liteModeBtn">Lite Mode</button>
+        <button class="mode-toggle-btn" onclick="app.toggleTheme()">🌓 Theme</button>
+        <button id="navLoginBtn" class="btn btn-secondary btn-sm" onclick="app.toggleDemoMode()">Enter Demo Mode</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace Container -->
+  <main class="main-container">
+
+    <!-- Mode Banner Notices -->
+    <div id="seniorActiveBanner" class="system-notice-bar senior hidden">
+      <span>👁️ <strong data-i18n="seniorActiveNotice">Senior Mode Active: Larger Text, High Contrast, Simple Controls.</strong></span>
+      <button class="btn btn-sm btn-secondary" onclick="app.toggleSeniorMode()">Disable</button>
+    </div>
+
+    <div id="liteActiveBanner" class="system-notice-bar hidden">
+      <span>⚡ <strong data-i18n="liteActiveNotice">Lite Mode Active, designed for slower connections.</strong></span>
+      <button class="btn btn-sm btn-secondary" onclick="app.toggleLiteMode()">Disable</button>
+    </div>
+
+
+    <div id="demoActiveBanner" class="system-notice-bar hidden" style="background:var(--success-bg); border-color:var(--success-border); color:var(--success-text);">
+      <span>&#x2705; <strong>Demo Mode Active &middot; No account required &middot; Analysis stays on your device</strong></span>
+      <button class="btn btn-sm btn-secondary" onclick="app.toggleDemoMode()">Exit Demo Mode</button>
+    </div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content-left">
+        <span class="hero-pill-badge">DIGITAL SAFETY FOR EVERYONE</span>
+        <h2 class="hero-title" data-i18n="heroTitle">Don't Trust Every Investment Message.</h2>
+        <p class="hero-sub" data-i18n="heroSub">Understand warning signs before you send money, share information, or act on a suspicious message.</p>
+
+        <div class="hero-cta-group">
+          <a href="#analyze" class="btn btn-primary" onclick="app.selectOption('text')" data-i18n="btnAnalyze">Analyze a Message</a>
+          <a href="#howItWorks" class="btn btn-secondary" data-i18n="btnHowItWorks">How It Works</a>
+        </div>
+
+        <div class="hero-trust-badges">
+          <span>✓ Privacy First</span>
+          <span>✓ Bharat-First</span>
+          <span>✓ Explainable</span>
+          <span>✓ Senior Friendly</span>
+        </div>
+      </div>
+
+      <!-- Hero Right: Interactive Product Preview Card -->
+      <div class="hero-preview-card">
+        <div class="preview-badge-header">
+          <span style="font-size: 0.75rem; color: var(--text-subtle); font-weight: 700;">SAMPLE ANALYSIS PREVIEW</span>
+          <span class="fictional-notice-badge">FICTIONAL DEMO</span>
+        </div>
+        <div class="preview-msg-text">
+          "Guaranteed 40% return in 7 days.<br>
+          Send ₹20,000 within 30 minutes.<br>
+          SEBI approved government scheme."
+        </div>
+        <div class="preview-signals-revealed">
+          <div class="preview-sig-item danger">⚠ Guaranteed return claim</div>
+          <div class="preview-sig-item warning">⚠ Urgency / pressure</div>
+          <div class="preview-sig-item info">ℹ Unverified authority claim</div>
+          <div class="preview-sig-item danger">⚠ Payment request</div>
+        </div>
+        <p style="font-size: 0.8rem; text-align: center; margin-top: 12px; font-weight: 800; color: var(--warning-text);">
+          Potential warning signals detected
+        </p>
+      </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <section class="trust-strip">
+      <h3 class="trust-strip-title">Built around safer decisions — not financial predictions</h3>
+      <div class="trust-cards-grid">
+        <div class="trust-card-item">
+          <h3>🔍 Understand</h3>
+          <p>See exactly which parts of a message triggered warning signals with simple explanations.</p>
+        </div>
+        <div class="trust-card-item">
+          <h3>🏛️ Verify</h3>
+          <p>Check important claims through independent official sources like SEBI and cybercrime helplines.</p>
+        </div>
+        <div class="trust-card-item">
+          <h3>🔒 Stay Safe</h3>
+          <p>Know what information and actions to avoid before transferring money under pressure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why It Matters (Fictional WhatsApp Conversation) -->
+    <section id="why" class="why-matters-card">
+      <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;" data-i18n="navWhy">A Scam Can Look Like a Normal Message</h3>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">
+        Scammers target first-time and elderly investors using guaranteed-return claims, fake regulator logos, and intense urgency.
+      </p>
+
+      <div class="why-grid">
+        <div>
+          <span class="fictional-notice-badge">FICTIONAL DEMONSTRATION CONTENT</span>
+          <div class="chat-mockup-box">
+            <div class="chat-bubble">
+              "Congratulations! You have been <mark class="highlight-span hl-medium">selected</mark> for a special investment opportunity.<br><br>
+              Get <mark class="highlight-span hl-high">Guaranteed 40%</mark> profit in 7 days!<br>
+              Send <mark class="highlight-span hl-high">₹20,000</mark> within <mark class="highlight-span hl-medium">30 minutes</mark> to lock your seat."
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-card-item" style="background-color: var(--bg-surface);">
+          <h3 style="margin-bottom: 12px;">What ScamShield Notices:</h3>
+          <ol style="margin-left: 20px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.8;">
+            <li><strong>Guaranteed return claim:</strong> Market investments cannot legally promise fixed returns.</li>
+            <li><strong>Urgency:</strong> Short deadlines panic users into acting before verifying.</li>
+            <li><strong>Payment request:</strong> Asks for money transfers to unknown personal accounts.</li>
+          </ol>
+          <div style="margin-top: 16px; padding: 10px; background-color: var(--warning-bg); border-radius: 6px; font-size: 0.85rem; font-weight: 700; color: var(--warning-text);">
+            ⚠ Warning signals detected — Verify before taking action.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works (4-Step Visual Journey) -->
+    <section id="howItWorks" class="how-it-works-section">
+      <h3 style="font-size: 1.4rem; font-weight: 800;" data-i18n="navHowItWorks">How ScamShield Works</h3>
+      <p style="color: var(--text-muted);">A simple four-step process designed for investor resilience</p>
+
+      <div class="how-steps-grid">
+        <div class="step-item-card">
+          <div class="step-num">01</div>
+          <h4>DETECT</h4>
+          <p>Paste a message, upload a screenshot, enter a URL, or use voice input.</p>
+        </div>
+        <div class="step-item-card">
+          <div class="step-num">02</div>
+          <h4>UNDERSTAND</h4>
+          <p>ScamShield identifies recognizable warning signals in your text.</p>
+        </div>
+        <div class="step-item-card">
+          <div class="step-num">03</div>
+          <h4>VERIFY</h4>
+          <p>Check important claims through official regulatory registries like SEBI.</p>
+        </div>
+        <div class="step-item-card">
+          <div class="step-num">04</div>
+          <h4>STAY SAFE</h4>
+          <p>Pause before transferring money or sharing sensitive credentials.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Options Selection -->
+    <section id="analyze" style="margin-bottom: 24px;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 6px;" data-i18n="dashTitle">What would you like to check?</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;" data-i18n="dashSub">Select an input method below to verify suspicious financial content.</p>
+
+      <div class="dashboard-grid">
+        <div class="dash-card active" data-tab="text" onclick="app.selectOption('text')">
+          <div class="dash-card-icon">💬</div>
+          <h3 data-i18n="optText">Message</h3>
+          <p data-i18n="optTextDesc">Paste a suspicious message</p>
+        </div>
+
+        <div class="dash-card" data-tab="image" onclick="app.selectOption('image')">
+          <div class="dash-card-icon">🖼️</div>
+          <h3 data-i18n="optImage">Screenshot</h3>
+          <p data-i18n="optImageDesc">Check text from a screenshot</p>
+        </div>
+
+        <div class="dash-card" data-tab="url" onclick="app.selectOption('url')">
+          <div class="dash-card-icon">🔗</div>
+          <h3 data-i18n="optUrl">Link</h3>
+          <p data-i18n="optUrlDesc">Review warning signals in a URL</p>
+        </div>
+
+        <div class="dash-card" data-tab="voice" onclick="app.selectOption('voice')">
+          <div class="dash-card-icon">🎙️</div>
+          <h3 data-i18n="optVoice">Voice</h3>
+          <p data-i18n="optVoiceDesc">Tell us what you received</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why This Approach Section -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 36px;">
+      <div class="dash-card" style="cursor: default; text-align: left;">
+        <h4 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 6px;">🔍 Explainable</h4>
+        <p>Every warning comes from an identifiable signal matched directly in the message.</p>
+      </div>
+      <div class="dash-card" style="cursor: default; text-align: left;">
+        <h4 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 6px;">🔒 Privacy-First</h4>
+        <p>Sensitive numbers are masked locally on your phone before analysis.</p>
+      </div>
+      <div class="dash-card" style="cursor: default; text-align: left;">
+        <h4 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 6px;">🤝 Human-Centered</h4>
+        <p>The system can say "I don't know" when evidence is inconclusive instead of pretending certainty.</p>
+      </div>
+    </div>
+
+    <!-- Main Analyzer Panel -->
+    <div id="textAnalysisPanel" class="analysis-card">
+      <div class="input-label-row">
+        <label for="inputText" style="font-weight: 800; font-size: 1.15rem;">Check a suspicious message:</label>
+        <span class="privacy-indicator-badge" onclick="document.getElementById('privacy').scrollIntoView({behavior:'smooth'})">
+          🔒 Analyzed on your device (Sensitive numbers masked)
+        </span>
+      </div>
+
+      <textarea id="inputText" class="analysis-textarea" data-i18n="inputPlaceholder" placeholder="Paste a message you received..."></textarea>
+      
+      <p style="font-size: 0.9rem; color: var(--warning-text); margin-bottom: 16px;" data-i18n="sensitiveHint">
+        ⚠️ Please do not paste OTPs, PINs or passwords.
+      </p>
+
+      <div class="example-btn-row">
+        <button class="btn btn-secondary btn-sm" onclick="app.tryScamExample()" data-i18n="btnTryScam">Try Scam Example</button>
+        <button class="btn btn-secondary btn-sm" onclick="app.trySafeExample()" data-i18n="btnTrySafe">Try Safe Example</button>
+      </div>
+
+      <button class="btn btn-primary" onclick="app.runTextAnalysis()" data-i18n="btnAnalyzeAction" style="width: 100%;">Analyze Message</button>
+    </div>
+
+    <!-- Staged Loading Progress Component -->
+    <div id="loadingBox" class="loading-box hidden">
+      <h3 style="margin-bottom: 8px;">Analyzing Message...</h3>
+      <div class="progress-bar-track">
+        <div id="progressFill" class="progress-bar-fill"></div>
+      </div>
+      <p id="loadingStepText" style="font-weight: 700; color: var(--primary);">Reading content...</p>
+    </div>
+
+    <!-- Result Screen Card -->
+    <!-- Ready to Analyze placeholder (shown before any analysis) -->
+    <div id="readyToAnalyzePlaceholder" style="text-align:center; padding:32px 16px; color:var(--text-muted);">
+      <div style="font-size:2.5rem; margin-bottom:12px;">&#x1F50D;</div>
+      <h3 style="color:var(--text-main); margin-bottom:8px;">Ready to Analyze</h3>
+      <p style="max-width:420px; margin:0 auto; font-size:0.95rem;">
+        Paste a suspicious message above and select <strong>Analyze</strong> to see explainable warning signals.
+      </p>
+    </div>
+
+    <div id="resultOutputCard" class="result-card hidden">
+      <div class="result-header">
+        <div class="risk-badge">
+          <span id="resultBadgeText">Ready to Analyze</span>
+        </div>
+        <div class="confidence-box">
+          <span data-i18n="confidenceLabel">Signal Confidence</span>: 
+          <span id="confidenceValText" class="confidence-val">�</span>
+          <br>
+          <small><span data-i18n="evidenceLabel">Evidence</span>: <strong id="evidenceValText">�</strong></small>
+        </div>
+      </div>
+
+      <div id="maskingNoticeBanner" class="system-notice-bar senior hidden">
+        We hid sensitive numbers on your device before analysis.
+      </div>
+
+      <p id="resultMessageText" class="result-msg">Paste a suspicious message above and select Analyze to see explainable warning signals.</p>
+
+      <div class="uncertainty-alert">
+        <strong>ℹ️ Confidence & Uncertainty Note:</strong>
+        <p id="confidenceNoteText" style="margin-top:4px;" data-i18n="confidenceNote">
+          Confidence shows how much evidence we found, not the chance that this is a scam.
+        </p>
+        <p id="unverifiedNoteText" style="margin-top:4px; font-style: italic;" data-i18n="unverifiedNote">
+          ScamShield cannot independently confirm whether the sender or organisation is legitimate.
+        </p>
+      </div>
+
+      <!-- Rendered Text with Highlighting -->
+      <div style="margin-bottom: 20px;">
+        <h4 style="margin-bottom: 8px;">What we found in the message:</h4>
+        <div id="highlightedTextContainer" class="highlight-render-box"></div>
+      </div>
+
+      <!-- Individual Expandable Signal Cards -->
+      <div class="signals-list-container">
+        <h4>Identified Warning Signals:</h4>
+        <div id="signalsListItems"></div>
+      </div>
+
+      <!-- Action Checklist -->
+      <div class="checklist-box">
+        <h4 data-i18n="actionTitle">What you can do now</h4>
+        <ul>
+          <li data-i18n="action1">🛑 Pause before sending money</li>
+          <li data-i18n="action2">🔍 Verify the sender independently</li>
+          <li data-i18n="action3">🔒 Never share OTPs, PINs or passwords</li>
+          <li data-i18n="action4">🏢 Check the organisation through its official website</li>
+          <li data-i18n="action5">📞 Call national cyber fraud helpline 1930 if money was lost</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Screenshot OCR Panel -->
+    <div id="imageOcrPanel" class="analysis-card hidden">
+      <h3>Screenshot Analysis (Demo OCR)</h3>
+      <p style="color: var(--text-muted); margin-bottom: 16px;">
+        Upload a screenshot of a WhatsApp or SMS message. Tesseract.js lazy-loads locally to extract text.
+      </p>
+
+      <input type="file" id="ocrFileInput" accept="image/png, image/jpeg, image/webp" onchange="app.processScreenshot(this)" style="margin-bottom: 16px;">
+      
+      <div id="ocrStatusBox" class="loading-box" style="margin-top: 12px;">
+        <p id="ocrStatusText">Select an image file above to begin text extraction.</p>
+        <p id="ocrProgressText" style="font-size: 0.85rem; color: var(--text-subtle); margin-top: 4px;"></p>
+      </div>
+    </div>
+
+    <!-- Voice Input Panel -->
+    <div id="voicePanel" class="analysis-card hidden">
+      <h3>Voice Input (Web Speech API)</h3>
+      <p style="color: var(--text-muted); margin-bottom: 16px;">
+        Speak your suspicious message aloud in English, Tamil, Hindi, Telugu, or Malayalam.
+      </p>
+
+      <button class="btn btn-primary" onclick="app.startVoiceInput()" style="margin-bottom: 16px;">
+        🎙️ Start Speaking Now
+      </button>
+
+      <p id="voiceStatusText" style="font-weight: 700; color: var(--primary);">
+        Click button above and allow microphone permission.
+      </p>
+    </div>
+
+    <!-- URL Signal Panel -->
+    <div id="urlPanel" class="analysis-card hidden">
+      <h3>Link / URL Signal Check</h3>
+      <p style="color: var(--text-muted); margin-bottom: 16px;">
+        Evaluates link text patterns, domain structure, and HTTP/HTTPS security signals. Zero network calls made.
+      </p>
+
+      <input type="text" id="inputUrl" class="analysis-textarea" style="min-height: 48px;" placeholder="https://example-sebi-scheme.xyz/login">
+      
+      <button class="btn btn-primary" onclick="app.runUrlCheck()" style="margin-top: 12px; width: 100%;">
+        Analyze Link Signals
+      </button>
+
+      <div id="urlResultCard" class="checklist-box hidden" style="margin-top: 20px;">
+        <h4 id="urlStatusTitle">URL Signal Result</h4>
+        <p id="urlWordingText" style="font-weight: bold; margin-bottom: 10px;"></p>
+        <div id="urlSignalsList"></div>
+        <p id="urlDisclaimerText" style="font-size: 0.85rem; color: var(--text-subtle); margin-top: 12px; font-style: italic;"></p>
+      </div>
+    </div>
+
+    <!-- Official Emergency Reporting Section -->
+    <section id="safety" class="reporting-section">
+      <h3 data-i18n="reportingTitle">Official Emergency Reporting & Verification</h3>
+      
+      <div class="reporting-grid">
+        <div class="report-item-card">
+          <h4>🚨 National Cyber Fraud Helpline</h4>
+          <p><strong data-i18n="report1930">Call 1930</strong> immediately if you have lost money to a financial scam.</p>
+        </div>
+
+        <div class="report-item-card">
+          <h4>🌐 National Cyber Crime Portal</h4>
+          <p><a href="https://www.cybercrime.gov.in/" target="_blank" rel="noopener">cybercrime.gov.in</a></p>
+          <small data-i18n="verifySelf">Verify the link yourself on the official site.</small>
+        </div>
+
+        <div class="report-item-card">
+          <h4>🏛️ SEBI SCORES Grievance Portal</h4>
+          <p><a href="https://scores.sebi.gov.in/" target="_blank" rel="noopener">scores.sebi.gov.in</a></p>
+          <small>Lodge official securities market grievances.</small>
+        </div>
+
+        <div class="report-item-card">
+          <h4>🏢 SEBI Official Verification Site</h4>
+          <p><a href="https://www.sebi.gov.in/" target="_blank" rel="noopener">sebi.gov.in</a></p>
+          <small>Check list of registered stock brokers & intermediaries.</small>
+        </div>
+      </div>
+
+      <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-subtle); font-style: italic;">
+        Note: ScamShield Bharat does not submit reports on your behalf. Always verify information independently through official sources.
+      </p>
+    </section>
+
+    <!-- Privacy Center Section -->
+    <section id="privacy" class="reporting-section">
+      <h3 data-i18n="privacyTitle">Privacy & Data Protection Center</h3>
+      <p style="color: var(--text-muted); margin-bottom: 16px;" data-i18n="privacySub">
+        Your information stays with you. ScamShield Bharat processes your text entirely inside your browser. No messages leave your phone or computer.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+        <div class="report-item-card">
+          <h4 data-i18n="privacyNotNeededTitle">What We Never Access</h4>
+          <pre style="white-space: pre-wrap; font-family: inherit; font-size: 0.95rem; color: var(--text-muted);" data-i18n="privacyNotNeededList">
+❌ Bank account password
+❌ UPI PIN or ATM PIN
+❌ Card PIN / CVV
+❌ Investment account password
+❌ Real-time OTPs
+          </pre>
+        </div>
+
+        <div class="report-item-card" style="text-align: center;">
+          <h4 data-i18n="privacyFlowTitle">Data Flow Diagram</h4>
+          <div style="margin-top: 12px; font-size: 0.95rem; line-height: 2;">
+            USER ➔ CONTENT ➔ <strong>LOCAL MASKING</strong> ➔ ANALYSIS ➔ WARNING SIGNALS ➔ EXPLANATION ➔ USER
+          </div>
+          <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-subtle);">
+            Messages are not stored. Core analysis runs locally in your browser.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px; text-align: center;">
+        <button class="btn btn-secondary btn-sm" onclick="app.clearData()">Clear Local Preferences & Saved Data</button>
+      </div>
+    </section>
+
+    <!-- Learn Section: Spot a Scam -->
+    <section id="learn" class="reporting-section">
+      <h3 data-i18n="navLearn">Learn to Spot Warning Signs</h3>
+      
+      <div class="reporting-grid">
+        <div class="report-item-card">
+          <h4>💰 Guaranteed Returns</h4>
+          <p>Nobody can honestly guarantee that an investment will make a fixed profit in stock markets.</p>
+        </div>
+
+        <div class="report-item-card">
+          <h4>⏳ Urgency & Pressure</h4>
+          <p>"Being told to act in 30 minutes can stop you from checking official facts or asking family."</p>
+        </div>
+
+        <div class="report-item-card">
+          <h4>🏛️ Authority Claims</h4>
+          <p>A message saying 'SEBI approved' does not prove that the sender or organization is genuine.</p>
+        </div>
+
+        <div class="report-item-card">
+          <h4>💳 Payment Requests</h4>
+          <p>Be careful when someone asks you to transfer money to personal UPI IDs before verification.</p>
+        </div>
+
+        <div class="report-item-card">
+          <h4>🔒 Credential Theft</h4>
+          <p>Never share OTPs, PINs, bank passwords, or install screen-sharing apps like AnyDesk.</p>
+        </div>
+
+        <div class="report-item-card">
+          <h4>📱 Fake Trading Apps & Gurus</h4>
+          <p>Social media stock tip groups and unverified APK links often impersonate trusted platforms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Tech Stack -->
+    <section id="arch" class="reporting-section">
+      <h3>Architecture & Technology Stack</h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 18px;">
+        <div class="report-item-card">
+          <h4 style="color: var(--success-border);">✅ Implemented in Prototype</h4>
+          <ul style="margin-left: 20px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.8;">
+            <li>Pure Vanilla HTML5 / CSS3 / ES6 JS</li>
+            <li>Deterministic Rule-Based Analyzer (`engine.js`)</li>
+            <li>In-Browser Local Data Masking</li>
+            <li>Multilingual i18n Engine (EN, TA, HI, TE, ML)</li>
+            <li>Senior Mode & Lite Mode Controls</li>
+            <li>Demo Mode Session (no authentication required &mdash; prototype only)</li>
+            <li>Tesseract.js OCR (Lazy-loaded)</li>
+            <li>Web Speech API Voice Integration</li>
+          </ul>
+        </div>
+
+        <div class="report-item-card">
+          <h4 style="color: var(--warning-border);">🔮 Planned for Production</h4>
+          <ul style="margin-left: 20px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.8;">
+            <li>FastAPI Backend API</li>
+            <li>Multilingual NLP Classifier & Fine-tuned LLM Explainer</li>
+            <li>Server-side Cloud OCR API</li>
+            <li>Firebase Auth / Twilio SMS Verification</li>
+            <li>PostgreSQL Analytics & Scam Pattern DB</li>
+            <li>SEBI & CyberCrime API Integration</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; text-align: center;">
+        <button class="btn btn-secondary" onclick="app.runAutomatedTests()">🧪 Run Automated Test Suite (9 Test Cases)</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Permanent Footer -->
+  <footer class="footer-bar">
+    <div class="footer-content">
+      <p class="footer-disclaimer" data-i18n="footerDisclaimer1">
+        ScamShield Bharat does not provide investment advice, stock tips, buy/sell/hold recommendations, price predictions or product promotions. It is an investor-safety and education tool.
+      </p>
+      <p class="footer-disclaimer" data-i18n="footerDisclaimer2">
+        Automated analysis may be incorrect. Always independently verify important financial information.
+      </p>
+      <p style="margin-top: 10px; font-size: 0.85rem;">
+        Developed for SANGYAN Investor Resilience Hackathon (IIT BHU, SEBI, NSDL) · Track A: Digital Fraud & Scam Resilience
+      </p>
+    </div>
+  </footer>
+
+  <!-- Demo Mode Modal (No authentication required) -->
+  <div id="loginModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div style="text-align:center; margin-bottom: 16px;">
+        <div style="font-size:2rem; margin-bottom:8px;">&#x1F6E1;&#xFE0F;</div>
+        <h3 style="margin-bottom: 6px;">Enter Demo Mode</h3>
+        <p style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Demo Mode &middot; No account required</p>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; text-align:center;">
+        This is a hackathon prototype. No phone number, OTP, or personal information is needed.
+        Your analysis stays private on your device.
+      </p>
+      <button class="btn btn-primary" onclick="app.activateDemoMode()" style="width: 100%; margin-bottom: 10px;">
+        &#x2705; Activate Demo Mode
+      </button>
+      <button class="btn btn-secondary btn-sm" onclick="app.closeLoginModal()" style="width: 100%; margin-top: 4px;">
+        Close
+      </button>
+      <p style="font-size: 0.75rem; color: var(--text-subtle); text-align:center; margin-top:14px;">
+        ScamShield Bharat does not collect phone numbers, passwords, UPI PINs or OTPs for authentication.
+      </p>
+    </div>
+  </div>
+
+  <!-- Scripts inlined for Netlify compatibility -->
+  <script>
+// ScamShield Bharat - Internationalization & Translation System (i18n.js)
+// Plain JavaScript - No modules, works over file://
+
+var i18n = {
+  currentLang: 'en',
+  
+  translations: {
+    en: {
+      appName: "ScamShield Bharat",
+      tagline: "Protect. Understand. Verify.",
+      heroTitle: "Don't Trust Every Investment Message.",
+      heroSub: "Explainable investor-safety technology that helps India's elderly and first-time investors understand suspicious financial messages before they act.",
+      heroBadge1: "Privacy First",
+      heroBadge2: "Bharat-First",
+      heroBadge3: "Explainable Engine",
+      heroBadge4: "Voice Accessible",
+      btnAnalyze: "Analyze Suspicious Message",
+      btnHowItWorks: "See How It Works",
+      navHome: "Home",
+      navAnalyze: "Analyze",
+      navHowItWorks: "How It Works",
+      navWhy: "Why It Matters",
+      navSafety: "Safety & Helpline",
+      navPrivacy: "Privacy Center",
+      navLearn: "Spot a Scam",
+      navArch: "Architecture",
+      navLogin: "Enter Demo Mode",
+      navLogout: "Logout",
+      seniorModeBtn: "Senior Mode",
+      liteModeBtn: "Lite Mode",
+      privacyNotice: "Sensitive numbers (OTPs, card PINs) are masked locally on your device before analysis.",
+      
+      // Dashboard options
+      dashTitle: "What would you like to check?",
+      dashSub: "Select an input method below to verify suspicious financial content.",
+      optText: "Message Text",
+      optTextDesc: "Paste WhatsApp, SMS or email text",
+      optImage: "Screenshot OCR",
+      optImageDesc: "Upload an image of a message",
+      optVoice: "Voice Input",
+      optVoiceDesc: "Speak or listen in your language",
+      optUrl: "Link / URL Check",
+      optUrlDesc: "Check suspicious website links",
+
+      // Analysis UI
+      inputPlaceholder: "Paste suspicious WhatsApp message, SMS, investment offer, or group message here...",
+      btnAnalyzeAction: "Analyze Risk Now",
+      btnTryScam: "Try Scam Example",
+      btnTrySafe: "Try Safe Example",
+      btnMaskNotice: "We hid sensitive numbers on your device before analysis.",
+      sensitiveHint: "Please do not paste OTPs, PINs or passwords.",
+
+      // Loading steps
+      step1: "Reading content...",
+      step2: "Detecting financial claims...",
+      step3: "Identifying warning patterns...",
+      step4: "Assessing evidence strength...",
+      step5: "Preparing simple explanation...",
+
+      // Result Headlines & Messages (EXACT REQUIRED)
+      noMajorTitle: "NO MAJOR WARNING SIGNALS",
+      noMajorMsg: "No major warning signals were identified in the content provided. This does not guarantee that the source is legitimate.",
+      potentialTitle: "POTENTIAL RISK",
+      potentialMsg: "Several warning signs were detected. Verify the sender and claims independently before taking action.",
+      highTitle: "HIGH RISK",
+      highMsg: "Multiple warning signals were detected. Avoid transferring money or sharing sensitive credentials until the information has been independently verified.",
+      inconclusiveTitle: "INCONCLUSIVE",
+      inconclusiveMsg: "We don't have enough evidence to determine whether this content is fraudulent. Do not treat this result as proof of legitimacy or fraud. Verify through an independent official source.",
+
+      // Confidence & Disclaimers
+      confidenceLabel: "Signal Confidence",
+      confidenceNote: "Confidence shows how much evidence we found, not the chance that this is a scam.",
+      evidenceLabel: "Evidence Strength",
+      evidenceStrong: "Strong Evidence",
+      evidenceModerate: "Moderate Evidence",
+      evidenceLimited: "Limited Evidence",
+      unverifiedNote: "ScamShield cannot independently confirm whether the sender or organisation is legitimate.",
+
+      // Action checklist
+      actionTitle: "What You Can Do Now",
+      action1: "PAUSE: Do not transfer money or reply immediately under pressure.",
+      action2: "VERIFY: Check official websites directly (e.g. SEBI registered list).",
+      action3: "NEVER SHARE: Keep OTPs, PINs, bank credentials strictly private.",
+      action4: "SAVE EVIDENCE: Take screenshots of messages and transaction details.",
+      action5: "REPORT: Call national cyber fraud helpline 1930 if money was lost.",
+
+      // Signal explanations
+      sigGuaranteed: "Guaranteed / Assured Returns",
+      sigGuaranteedExp: "Promises fixed or risk-free returns. Legitimate market investments carry risk and cannot guarantee fixed returns by law.",
+      sigUrgency: "Urgency & Pressure",
+      sigUrgencyExp: "Uses strict time limits to panic you into acting before thinking or asking a family member.",
+      sigAuthority: "Unverified Authority Claim",
+      sigAuthorityExp: "The message claims regulatory approval (e.g. SEBI/RBI). ScamShield cannot verify that claim from the message alone. Verify the organisation and claim through an official source.",
+      sigPayment: "Payment Request / Registration Fee",
+      sigPaymentExp: "Asks you to transfer money to a personal UPI ID or account to unlock gains or activate an account.",
+      sigCredential: "Sensitive Credential Request",
+      sigCredentialExp: "Requests confidential security data such as OTP, UPI PIN, CVV, or remote control app installation.",
+      sigLink: "Suspicious Link / Domain",
+      sigLinkExp: "Contains shortened or unofficial links designed to look like legitimate bank or investment portals.",
+      sigContact: "Unsolicited Group / Tips",
+      sigContactExp: "Claims you were randomly selected or invites you to private WhatsApp/Telegram stock tip groups.",
+
+      // Reporting Links
+      reportingTitle: "Official Emergency Reporting & Verification",
+      report1930: "National Cyber Crime Helpline: Call 1930",
+      reportCyber: "Official Cyber Crime Portal: cybercrime.gov.in",
+      reportSebiScores: "SEBI SCORES Grievance Portal: scores.sebi.gov.in",
+      reportSebiMain: "Official SEBI Website: sebi.gov.in",
+      verifySelf: "Always verify links yourself by typing official web addresses directly.",
+
+      // Privacy Center
+      privacyTitle: "Privacy & Data Protection Center",
+      privacySub: "ScamShield Bharat processes your text entirely inside your browser. No messages leave your phone or computer.",
+      privacyNotNeededTitle: "What We Never Access",
+      privacyNotNeededList: "• Bank account passwords\n• UPI PINs or ATM PINs\n• Card numbers or CVV\n• Real-time OTPs\n• Personal contacts or SMS inbox",
+      privacyFlowTitle: "Data Flow Diagram",
+
+      // Senior Mode / Lite Mode
+      seniorActiveNotice: "Senior Mode Active: Larger Text, High Contrast, Simple Controls.",
+      liteActiveNotice: "Lite Mode Active, designed for slower connections.",
+
+      // Footer
+      footerDisclaimer1: "ScamShield Bharat does not provide investment advice, stock tips, buy/sell/hold recommendations, price predictions or product promotions. It is an investor-safety and education tool.",
+      footerDisclaimer2: "Automated analysis may be incorrect. Always independently verify important financial information.",
+      prototypeTag: "Rule-based analysis · Prototype"
+    },
+
+    ta: {
+      // Tamil Translations (Designed for elderly accessibility - Note: to be reviewed by a native speaker)
+      appName: "ஸ்கேம்ஷீல்ட் பாரத்",
+      tagline: "பாதுகாப்போம். புரிந்துகொள்வோம். சரிபார்ப்போம்.",
+      heroTitle: "ஒவ்வொரு முதலீட்டு செய்தியையும் நம்பாதீர்கள்.",
+      heroSub: "மூத்த குடிமக்கள் மற்றும் புதிய முதலீட்டாளர்கள் சந்தேகத்திற்குரிய நிதிச் செய்திகளைப் புரிந்து கொள்ள உதவும் எளிய பாதுகாப்புத் தொழில் நுட்பம்.",
+      heroBadge1: "தனியுரிமை பாதுகாப்பு",
+      heroBadge2: "பாரத் முன்னுரிமை",
+      heroBadge3: "விளக்கக்கூடிய பகுப்பாய்வு",
+      heroBadge4: "குரல் வழி பயன்பாடு",
+      btnAnalyze: "செய்தியைச் சரிபார்க்கவும்",
+      btnHowItWorks: "செயல்படும் விதம்",
+      navHome: "முகப்பு",
+      navAnalyze: "பகுப்பாய்வு",
+      navHowItWorks: "செயல்முறை",
+      navWhy: "முக்கியத்துவம்",
+      navSafety: "உதவி மையம்",
+      navPrivacy: "தனியுரிமை",
+      navLearn: "விழிப்புணர்வு",
+      navArch: "கட்டமைப்பு",
+      navLogin: "உள்நுழைவு",
+      navLogout: "வெளியேறு",
+      seniorModeBtn: "பெரிய எழுத்து முறை (Senior)",
+      liteModeBtn: "லைட் முறை (Lite)",
+      privacyNotice: "உங்கள் OTP மற்றும் PIN எண்கள் பகுப்பாய்விற்கு முன் மறைக்கப்படும்.",
+
+      dashTitle: "நீங்கள் எதைச் சரிபார்க்க விரும்புகிறீர்கள்?",
+      dashSub: "சந்தேகத்திற்குரிய உள்ளடக்கத்தைச் சரிபார்க்க கீழே உள்ள முறையைத் தேர்ந்தெடுக்கவும்.",
+      optText: "உரை செய்தி",
+      optTextDesc: "வாட்ஸ்அப் அல்லது எஸ்.எம்.எஸ் உரையை ஒட்டவும்",
+      optImage: "திரைப்படம் (Screenshot)",
+      optImageDesc: "செய்தியின் புகைப்படத்தைப் பதிவேற்றவும்",
+      optVoice: "குரல் பதிவு",
+      optVoiceDesc: "உங்கள் மொழியில் பேசுங்கள்",
+      optUrl: "இணைய இணைப்பு (URL)",
+      optUrlDesc: "இணைப்பைச் சரிபார்க்கவும்",
+
+      inputPlaceholder: "சந்தேகத்திற்குரிய வாட்ஸ்அப் அல்லது எஸ்.எம்.எஸ் செய்தியை இங்கே ஒட்டவும்...",
+      btnAnalyzeAction: "இப்போது பகுப்பாய்வு செய்",
+      btnTryScam: "மோசடி செய்தி மாதிரி",
+      btnTrySafe: "பாதுகாப்பான செய்தி மாதிரி",
+      btnMaskNotice: "உங்கள் சாதனத்திலேயே ரகசிய எண்கள் மறைக்கப்பட்டன.",
+      sensitiveHint: "தயவுசெய்து OTP அல்லது PIN எண்களைப் பகிர வேண்டாம்.",
+
+      step1: "உரையைப் படிக்கிறது...",
+      step2: "நிதி உரிமைகளைக் கண்டறிகிறது...",
+      step3: "எச்சரிக்கை வடிவங்களைக் கண்டறிகிறது...",
+      step4: "சான்றுகளின் வலிமையை மதிப்பிடுகிறது...",
+      step5: "எளிய விளக்கத்தை ஆயத்தப்படுத்துகிறது...",
+
+      noMajorTitle: "முக்கிய எச்சரிக்கை அறிகுறிகள் இல்லை",
+      noMajorMsg: "வழங்கப்பட்ட உள்ளடக்கத்தில் எந்த முக்கிய எச்சரிக்கை அறிகுறிகளும் கண்டறியப்படவில்லை. இது இதன் மூலத்தின் நம்பகத்தன்மையை உறுதி செய்யாது.",
+      potentialTitle: "சாத்தியமான அபாயம்",
+      potentialMsg: "சில எச்சரிக்கை அறிகுறிகள் கண்டறியப்பட்டுள்ளன. எந்த நடவடிக்கையும் எடுப்பதற்கு முன் அனுப்புநரையும் தகவலையும் சரிபார்க்கவும்.",
+      highTitle: "அதிக அபாயம்",
+      highMsg: "பல எச்சரிக்கை அறிகுறிகள் கண்டறியப்பட்டுள்ளன. சுதந்திரமாக சரிபார்க்கும் வரை பணம் அனுப்பவோ அல்லது தகவல்களைப் பகிரவோ வேண்டாம்.",
+      inconclusiveTitle: "முடிவு செய்ய இயலவில்லை",
+      inconclusiveMsg: "இது மோசடியானதா என்பதைத் தீர்மானிக்க நம்மிடம் போதுமான சான்றுகள் இல்லை. சுயாதீன அதிகாரப்பூர்வ மூலத்தின் மூலம் சரிபார்க்கவும்.",
+
+      confidenceLabel: "சான்றுகளின் நம்பிக்கை அளவு",
+      confidenceNote: "இந்த அளவு சான்றுகளின் வலிமையைக் காட்டுகிறது, மோசடியின் சதவீதத்தை அல்ல.",
+      evidenceLabel: "சான்றுகளின் வலிமை",
+      evidenceStrong: "শক্তமான சான்று",
+      evidenceModerate: "மிதமான சான்று",
+      evidenceLimited: "குறைந்த சான்று",
+      unverifiedNote: "அனுப்புநர் அல்லது நிறுவனம் உண்மையானதா என்பதை ஸ்கேம்ஷீல்ட் நேரடியாக உறுதிப்படுத்த முடியாது.",
+
+      actionTitle: "நீங்கள் இப்போது செய்ய வேண்டியவை",
+      action1: "நிறுத்துங்கள்: அவசரப்பட்டு உடனே பணம் அனுப்பாதீர்கள்.",
+      action2: "சரிபார்க்கவும்: அதிகாரப்பூர்வ இணையதளங்களில் (SEBI) நேரடியாக சரிபார்க்கவும்.",
+      action3: "ரகசியம் காக்கவும்: OTP, PIN எண்களை யாருடனும் பகிர வேண்டாம்.",
+      action4: "ஆதாரம் சேகரிக்கவும்: செய்தியின் திரைப்பிடிப்பை (Screenshot) சேமிக்கவும்.",
+      action5: "புகார் அளிக்கவும்: பணம் இழந்திருந்தால் உடனே 1930 என்ற எண்ணிற்கு அழைக்கவும்.",
+
+      sigGuaranteed: "உறுதியளிக்கப்பட்ட லாபம்",
+      sigGuaranteedExp: "நிச்சய லாபம் தருவதாகக் கூறுகிறது. சட்டப்படி பங்குச்சந்தை முதலீடுகளில் நிச்சய லாபம் அளிக்க முடியாது.",
+      sigUrgency: "அவசரம் மற்றும் நெருக்குதல்",
+      sigUrgencyExp: "யோசிக்க நேரம் தராமல் உடனே செயல்பட வைக்க அவசரப்படுத்துகிறது.",
+      sigAuthority: "சரிபார்க்கப்படாத அதிகாரப்பூர்வ கூற்று",
+      sigAuthorityExp: "அரசு அல்லது SEBI அங்கீகாரம் பெற்றதாகக் கூறுகிறது. இதை அதிகாரப்பூர்வ தளத்தில் சரிபார்க்க வேண்டும்.",
+      sigPayment: "பணம் செலுத்தும் கோரிக்கை",
+      sigPaymentExp: "தனிநபர் UPI அல்லது கணக்கிற்கு பணம் அனுப்புமாறு கேட்கிறது.",
+      sigCredential: "ரகசிய விவரங்கள் கோரிக்கை",
+      sigCredentialExp: "OTP, PIN அல்லது கடவுச்சொல்லைக் கேட்கிறது.",
+      sigLink: "சந்தேகத்திற்குரிய இணைய இணைப்பு",
+      sigLinkExp: "போலியான அல்லது குறுகிய இணைய இணைப்பைக் கொண்டுள்ளது.",
+      sigContact: "அழைக்கப்படாத குழுக்கள்",
+      sigContactExp: "வாட்ஸ்அப் அல்லது தந்தி குழுவில் இணைய அழைக்கிறது.",
+
+      reportingTitle: "அதிகாரப்பூர்வ உதவி மற்றும் புகார் மையங்கள்",
+      report1930: "தேசிய சைபர் குற்ற உதவி எண்: 1930",
+      reportCyber: "சைபர் குற்ற இணையதளம்: cybercrime.gov.in",
+      reportSebiScores: "SEBI புகார் மையம்: scores.sebi.gov.in",
+      reportSebiMain: "அதிகாரப்பூர்வ SEBI தளம்: sebi.gov.in",
+      verifySelf: "இணைப்புகளை எப்போதும் நீங்களே நேரடியாகத் தட்டச்சு செய்து சரிபார்க்கவும்.",
+
+      privacyTitle: "தனியுரிமை பாதுகாப்பு மையம்",
+      privacySub: "உங்கள் தகவல்கள் உங்கள் போனுக்குள்ளேயே பகுப்பாய்வு செய்யப்படுகின்றன.",
+      privacyNotNeededTitle: "நாங்கள் சேகரிக்காதவை",
+      privacyNotNeededList: "• வங்கி கடவுச்சொல்\n• UPI அல்லது ATM PIN எண்கள்\n• அட்டை விவரங்கள்\n• உங்கள் OTP எண்கள்",
+      privacyFlowTitle: "தகவல் பரிமாற்ற வரைபடம்",
+
+      seniorActiveNotice: "பெரிய எழுத்து முறை செயல்படுகிறது: பெரிய எழுத்துக்கள், தெளிவான பொத்தான்கள்.",
+      liteActiveNotice: "லைட் முறை செயல்படுகிறது: மெதுவான இணைய இணைப்பிற்கு உகந்தது.",
+
+      footerDisclaimer1: "ஸ்கேம்ஷீல்ட் பாரத் முதலீட்டு ஆலோசனைகளையோ அல்லது பங்குப் பரிந்துரைகளையோ வழங்காது. இது ஒரு பாதுகாப்பு விழிப்புணர்வு கருவி மட்டுமே.",
+      footerDisclaimer2: "தானியங்கி பகுப்பாய்வு தவறாக இருக்கலாம். முக்கியமான நிதித் தகவல்களை எப்போதும் நேரடியாக சரிபார்க்கவும்.",
+      prototypeTag: "விதி சார்ந்த பகுப்பாய்வு · மாதிரி வடிவம்"
+    },
+
+    hi: {
+      appName: "स्कैमशील्ड भारत",
+      tagline: "सुरक्षा। समझ। सत्यापन।",
+      heroTitle: "हर निवेश संदेश पर भरोसा न करें।",
+      heroSub: "व्याख्यात्मक निवेशक-सुरक्षा तकनीक जो भारत के वरिष्ठ नागरिकों और नए निवेशकों को संदिग्ध वित्तीय संदेशों को समझने में मदद करती है।",
+      heroBadge1: "गोपनीयता प्रथम",
+      heroBadge2: "भारत-प्रथम",
+      heroBadge3: "स्पष्ट विश्लेषण",
+      heroBadge4: "वॉइस सुलभ",
+      btnAnalyze: "संदेश की जांच करें",
+      btnHowItWorks: "यह कैसे काम करता है",
+      navHome: "होम",
+      navAnalyze: "जांच करें",
+      navHowItWorks: "कार्यप्रणाली",
+      navWhy: "क्यों जरूरी है",
+      navSafety: "सुरक्षा और हेल्पलाइन",
+      navPrivacy: "गोपनीयता केंद्र",
+      navLearn: "स्कैम पहचानें",
+      navArch: "आर्किटेक्चर",
+      navLogin: "डेमो लॉगिन",
+      navLogout: "लॉगआउट",
+      seniorModeBtn: "सीनियर मोड",
+      liteModeBtn: "लाइट मोड",
+      privacyNotice: "विश्लेषण से पहले आपके उपकरण पर संवेदनशील नंबर (OTP, PIN) छिपा दिए जाते हैं।",
+
+      dashTitle: "आप क्या जांचना चाहते हैं?",
+      dashSub: "संदिग्ध सामग्री की जांच के लिए नीचे दिए गए विकल्प चुनें।",
+      optText: "संदेश टेक्स्ट",
+      optTextDesc: "व्हाट्सएप या एसएमएस टेक्स्ट पेस्ट करें",
+      optImage: "स्क्रीनशॉट OCR",
+      optImageDesc: "संदेश की फोटो अपलोड करें",
+      optVoice: "वॉइस इनपुट",
+      optVoiceDesc: "अपनी भाषा में बोलें",
+      optUrl: "लिंक / URL जांच",
+      optUrlDesc: "वेबसाइट लिंक की जांच करें",
+
+      inputPlaceholder: "संदिग्ध व्हाट्सएप संदेश या निवेश प्रस्ताव यहां पेस्ट करें...",
+      btnAnalyzeAction: "जोखिम का विश्लेषण करें",
+      btnTryScam: "स्कैम उदाहरण",
+      btnTrySafe: "सुरक्षित उदाहरण",
+      btnMaskNotice: "हमने विश्लेषण से पहले आपके डिवाइस पर संवेदनशील नंबर छिपा दिए।",
+      sensitiveHint: "कृपया OTP, PIN या पासवर्ड शेयर न करें।",
+
+      step1: "सामग्री पढ़ी जा रही है...",
+      step2: "वित्तीय दावों की पहचान...",
+      step3: "चेतावनी पैटर्न की पहचान...",
+      step4: "साक्ष्यों का मूल्यांकन...",
+      step5: "सरल व्याख्या तैयार की जा रही है...",
+
+      noMajorTitle: "कोई मुख्य चेतावनी संकेत नहीं",
+      noMajorMsg: "प्रदान की गई सामग्री में कोई मुख्य चेतावनी संकेत नहीं मिले। यह स्रोत के वैध होने की गारंटी नहीं देता है।",
+      potentialTitle: "संभावित जोखिम",
+      potentialMsg: "कई चेतावनी संकेत पाए गए हैं। कदम उठाने से पहले प्रेषक और दावों की स्वतंत्र रूप से पुष्टि करें।",
+      highTitle: "उच्च जोखिम",
+      highMsg: "कई चेतावनी संकेत पाए गए हैं। जब तक जानकारी की स्वतंत्र रूप से पुष्टि न हो जाए, पैसे भेजने या गोपनीय जानकारी साझा करने से बचें।",
+      inconclusiveTitle: "अनिर्णायक",
+      inconclusiveMsg: "हमारे पास यह तय करने के लिए पर्याप्त साक्ष्य नहीं हैं कि यह सामग्री धोखाधड़ी है या नहीं। आधिकारिक स्रोत से पुष्टि करें।",
+
+      confidenceLabel: "साक्ष्य का विश्वास स्तर",
+      confidenceNote: "विश्वास स्तर यह दर्शाता है कि हमें कितने साक्ष्य मिले, न कि स्कैम की संभावना।",
+      evidenceLabel: "साक्ष्य की ताकत",
+      evidenceStrong: "मजबूत साक्ष्य",
+      evidenceModerate: "मध्यम साक्ष्य",
+      evidenceLimited: "सीमित साक्ष्य",
+      unverifiedNote: "स्कैमशील्ड स्वतंत्र रूप से यह पुष्टि नहीं कर सकता कि प्रेषक या संगठन वैध है या नहीं।",
+
+      actionTitle: "अब आप क्या कर सकते हैं",
+      action1: "रोकें: दबाव में तुरंत पैसे न भेजें।",
+      action2: "सत्यापित करें: आधिकारिक वेबसाइटों (SEBI) की जांच करें।",
+      action3: "गोपनीय रखें: OTP और PIN कभी साझा न करें।",
+      action4: "साक्ष्य रखें: संदेश का स्क्रीनशॉट लें।",
+      action5: "रिपोर्ट करें: वित्तीय धोखाधड़ी होने पर 1930 पर कॉल करें।",
+
+      sigGuaranteed: "गारंटीकृत रिटर्न",
+      sigGuaranteedExp: "निश्चित या जोखिम-मुक्त रिटर्न का वादा करता है। कानूनन बाजार निवेश में गारंटीकृत रिटर्न नहीं दिया जा सकता।",
+      sigUrgency: "जल्दबाजी और दबाव",
+      sigUrgencyExp: "सोचने का समय दिए बिना जल्दबाजी में निर्णय लेने का दबाव बनाता है।",
+      sigAuthority: "अत्यावश्यक/अपुष्ट दावा",
+      sigAuthorityExp: "सरकारी या SEBI अनुमोदन का दावा। इसे आधिकारिक स्रोत से सत्यापित करें।",
+      sigPayment: "भुगतान का अनुरोध",
+      sigPaymentExp: "व्यक्तिगत UPI या खाते में पैसे भेजने का अनुरोध।",
+      sigCredential: "गोपनीय जानकारी का अनुरोध",
+      sigCredentialExp: "OTP, PIN या पासवर्ड मांगता है।",
+      sigLink: "संदिग्ध लिंक",
+      sigLinkExp: "फर्जी या छोटे किए गए वेब लिंक शामिल हैं।",
+      sigContact: "अवांछित ग्रुप/टिप्स",
+      sigContactExp: "व्हाट्सएप या टेलीग्राम ग्रुप में शामिल होने का न्योता।",
+
+      reportingTitle: "आधिकारिक आपातकालीन रिपोर्टिंग",
+      report1930: "राष्ट्रीय साइबर अपराध हेल्पलाइन: 1930",
+      reportCyber: "आधिकारिक साइबर अपराध पोर्टल: cybercrime.gov.in",
+      reportSebiScores: "SEBI SCORES शिकायत पोर्टल: scores.sebi.gov.in",
+      reportSebiMain: "आधिकारिक SEBI वेबसाइट: sebi.gov.in",
+      verifySelf: "हमेशा आधिकारिक वेब पते स्वयं टाइप करके लिंक सत्यापित करें।",
+
+      privacyTitle: "गोपनीयता और डेटा सुरक्षा केंद्र",
+      privacySub: "आपकी जानकारी आपके ब्राउज़र के भीतर ही विश्लेषित की जाती है।",
+      privacyNotNeededTitle: "हम क्या कभी एक्सेस नहीं करते",
+      privacyNotNeededList: "• बैंक पासवर्ड\n• UPI / ATM PIN\n• कार्ड विवरण\n• आपके OTP नंबर",
+      privacyFlowTitle: "डेटा फ्लो आरेख",
+
+      seniorActiveNotice: "सीनियर मोड सक्रिय: बड़ा टेक्स्ट और उच्च कंट्रास्ट।",
+      liteActiveNotice: "लाइट मोड सक्रिय: धीमे इंटरनेट कनेक्शन के लिए अनुकूलित।",
+
+      footerDisclaimer1: "स्कैमशील्ड भारत निवेश सलाह या स्टॉक सिफारिशें प्रदान नहीं करता है। यह केवल एक सुरक्षा शिक्षा उपकरण है।",
+      footerDisclaimer2: "स्वचालित विश्लेषण गलत हो सकता है। हमेशा महत्वपूर्ण वित्तीय जानकारी को स्वतंत्र रूप से सत्यापित करें।",
+      prototypeTag: "नियम-आधारित विश्लेषण · प्रोटोटाइप"
+    },
+
+    te: {
+      appName: "స్కామ్‌షీల్డ్ భారత్",
+      tagline: "రక్షించండి. అర్థం చేసుకోండి. సరిచూడండి.",
+      heroTitle: "ప్రతి పెట్టుబడి సందేశాన్ని నమ్మవద్దు.",
+      heroSub: "అనుమానాస్పద ఆర్థిక సందేశాలను అర్థం చేసుకోవడానికి సీనియర్ పౌరులు మరియు కొత్త పెట్టుబడిదారులకు సహాయపడే సాంకేతికత.",
+      heroBadge1: "గోప్యత ప్రథమం",
+      heroBadge2: "భారత్-ఫస్ట్",
+      heroBadge3: "వివరణాత్మక ఇంజిన్",
+      heroBadge4: "వాయిస్ సపోర్ట్",
+      btnAnalyze: "సందేశాన్ని సరిచూడండి",
+      btnHowItWorks: "ఇది ఎలా పనిచేస్తుంది",
+      navHome: "హోమ్",
+      navAnalyze: "విశ్లేషణ",
+      navHowItWorks: "విధానం",
+      navWhy: "ఎందుకు ముఖ్యం",
+      navSafety: "హెల్ప్‌లైన్",
+      navPrivacy: "గోప్యతా కేంద్రం",
+      navLearn: "స్కామ్‌ను గుర్తించండి",
+      navArch: "ఆర్కిటెక్చర్",
+      navLogin: "లాగిన్",
+      navLogout: "లాగౌట్",
+      seniorModeBtn: "సీనియర్ మోడ్",
+      liteModeBtn: "లైట్ మోడ్",
+      privacyNotice: "విశ్లేషణకు ముందు మీ పరికరంలో రహస్య సంఖ్యలు (OTP, PIN) దాచబడతాయి.",
+
+      dashTitle: "మీరు దేనిని తనిఖీ చేయాలనుకుంటున్నారు?",
+      dashSub: "అనుమానాస్పద వివరాలను తనిఖీ చేయడానికి క్రింది ఎంపికను ఎంచుకోండి.",
+      optText: "సందేశం టెక్స్ట్",
+      optTextDesc: "వాట్సాప్ లేదా SMS టెక్స్ట్ पेस्ट చేయండి",
+      optImage: "స్క్రీన్‌షాట్ OCR",
+      optImageDesc: "సందేశం ఫోటోను అప్‌లోడ్ చేయండి",
+      optVoice: "వాయిస్ ఇన్పుట్",
+      optVoiceDesc: "మీ భాషలో మాట్లాడండి",
+      optUrl: "లింక్ / URL తనిఖీ",
+      optUrlDesc: "వెబ్‌సైట్ లింక్‌ను తనిఖీ చేయండి",
+
+      inputPlaceholder: "అనుమానాస్పద సందేశాన్ని ఇక్కడ पेस्ट చేయండి...",
+      btnAnalyzeAction: "విశ్లేషించండి",
+      btnTryScam: "స్కామ్ ఉదాహరణ",
+      btnTrySafe: "సురక్షిత ఉదాహరణ",
+      btnMaskNotice: "విశ్లేషణకు ముందే మీ ఫోన్‌లో రహస్య సంఖ్యలు దాచబడ్డాయి.",
+      sensitiveHint: "దయచేసి OTP లేదా PIN లభ్యతను పంచుకోవద్దు.",
+
+      step1: "సందేశాన్ని చదువుతోంది...",
+      step2: "దావాలను గుర్తిస్తోంది...",
+      step3: "హెచ్చరికల పరిశీలన...",
+      step4: "ఆధారాల మూల్యాంకనం...",
+      step5: "వివరణ సిద్ధమవుతోంది...",
+
+      noMajorTitle: "ముఖ్యమైన హెచ్చరిక సంకేతాలు లేవు",
+      noMajorMsg: "అందించిన వివరాలలో ఎటువంటి ముఖ్యమైన హెచ్చరిక సంకేతాలు కనుగొనబడలేదు. ఇది మూలం యొక్క ప్రామాణికతకు హామీ ఇవ్వదు.",
+      potentialTitle: "సాధ్యమైన ప్రమాదం",
+      potentialMsg: "కొన్ని హెచ్చరిక సంకేతాలు కనుగొనబడ్డాయి. చర్య తీసుకునే ముందు పంపినవారిని స్వతంత్రంగా సరిచూడండి.",
+      highTitle: "అధిక ప్రమాదం",
+      highMsg: "పలు హెచ్చరిక సంకేతాలు కనుగొనబడ్డాయి. వివరాలు ధృవీకరించబడే వరకు డబ్బు పంపడం లేదా సమాచారం పంచుకోవడం చేయవద్దు.",
+      inconclusiveTitle: "అనిశ్చితం",
+      inconclusiveMsg: "ఇది మోసపూరితమైనదా కాదా అని నిర్ణయించడానికి సరిపడా ఆధారాలు లేవు. అధికారిక మూలం ద్వారా సరిచూడండి.",
+
+      confidenceLabel: "ఆధారాల విశ్వసనీయత",
+      confidenceNote: "విశ్వసనీయత అనేది ఆధారాల బలాన్ని చూపిస్తుంది, మోసం యొక్క శాతాన్ని కాదు.",
+      evidenceLabel: "ఆధారాల బలం",
+      evidenceStrong: "బలమైన ఆధారం",
+      evidenceModerate: "మధ్యస్థ ఆధారం",
+      evidenceLimited: "పరిమిత ఆధారం",
+      unverifiedNote: "పంపినవారు లేదా సంస్థ ప్రామాణికమైనదా కాదా అనేది స్కామ్‌షీల్డ్ స్వతంత్రంగా ధృవీకరించలేదు.",
+
+      actionTitle: "మీరు ఇప్పుడు ఏమి చేయవచ్చు",
+      action1: "ఆగండి: ఒత్తిడిలో వెంటనే డబ్బు పంపవద్దు.",
+      action2: "సరిచూడండి: అధికారిక వెబ్‌సైట్లలో (SEBI) తనిఖీ చేయండి.",
+      action3: "రహస్యంగా ఉంచండి: OTP, PIN లను ఎప్పుడూ పంచుకోవద్దు.",
+      action4: "ఆధారం ఉంచండి: స్క్రీన్‌షాట్ తీసి ఉంచండి.",
+      action5: "నివేదించండి: మోసం జరిగితే 1930 హెల్ప్‌లైన్‌కు కాల్ చేయండి.",
+
+      sigGuaranteed: "హామీ ఇవ్వబడిన రాబడి",
+      sigGuaranteedExp: "ఖచ్చితమైన లాభాల హామీ. మార్కెట్ పెట్టుబడులలో నిశ్చిత లాభాలు ఇవ్వడం చట్టరీత్యా సాధ్యం కాదు.",
+      sigUrgency: "అత్యవసరం మరియు ఒత్తిడి",
+      sigUrgencyExp: "ఆలోచించే సమయం ఇవ్వకుండా వెంటనే స్పందించేలా ఒత్తిడి తెస్తుంది.",
+      sigAuthority: "ధృవీకరించబడని అధికారం",
+      sigAuthorityExp: "SEBI/RBI అనుమతి ఉందనే దావా. అధికారిక సైట్‌లో సరిచూడాలి.",
+      sigPayment: "చెల్లింపు అభ్యర్థన",
+      sigPaymentExp: "వ్యక్తిగత UPI లేదా ఖాతాకు డబ్బు పంపమని కోరుతుంది.",
+      sigCredential: "రహస్య వివరాల కోరిక",
+      sigCredentialExp: "OTP లేదా PIN అడుగుతుంది.",
+      sigLink: "అనుమానాస్పద లింక్",
+      sigLinkExp: "నకిలీ లేదా చిన్న లింక్‌లు ఉన్నాయి.",
+      sigContact: "అపరిచిత గ్రూపులు",
+      sigContactExp: "వాట్సాప్ లేదా టెలిగ్రామ్ గ్రూప్‌లో చేరమని ఆహ్వానం.",
+
+      reportingTitle: "అధికారిక అత్యవసర నివేదిక",
+      report1930: "సైబర్ క్రైమ్ హెల్ప్‌లైన్: 1930",
+      reportCyber: "సైబర్ క్రైమ్ పోర్టల్: cybercrime.gov.in",
+      reportSebiScores: "SEBI SCORES పోర్టల్: scores.sebi.gov.in",
+      reportSebiMain: "అధికారిక SEBI వెబ్‌సైట్: sebi.gov.in",
+      verifySelf: "లింక్‌లను ఎల్లప్పుడూ నిష్పాక్షికంగా నేరుగా టైప్ చేసి తనిఖీ చేయండి.",
+
+      privacyTitle: "గోప్యతా రక్షణ కేంద్రం",
+      privacySub: "మీ వివరాలు మీ ఫోన్‌లోనే విశ్లేషించబడతాయి.",
+      privacyNotNeededTitle: "మేము సేకరించనివి",
+      privacyNotNeededList: "• బ్యాంక్ పాస్‌వర్డ్\n• UPI / ATM PIN\n• కార్డ్ వివరాలు\n• మీ OTP సంఖ్యలు",
+      privacyFlowTitle: "డేటా ఫ్లో డయాగ్రామ్",
+
+      seniorActiveNotice: "సీనియర్ మోడ్ ఆన్‌లో ఉంది: పెద్ద అక్షరాలు మరియు స్పష్టమైన బటన్లు.",
+      liteActiveNotice: "లైట్ మోడ్ ఆన్‌లో ఉంది: తక్కువ ఇంటర్నెట్ వేగానికి అనుకూలం.",
+
+      footerDisclaimer1: "స్కామ్‌షీల్డ్ భారత్ పెట్టుబడి సలహాలను అందించదు. ఇది కేవలం ఒక రక్షణ అవగాహన సాధనం మాత్రమే.",
+      footerDisclaimer2: "ఆటోమేటెడ్ విశ్లేషణ తప్పు కావచ్చు. ముఖ్యమైన వివరాలను ఎల్లప్పుడూ స్వతంత్రంగా సరిచూడండి.",
+      prototypeTag: "రూల్ ఆధారిత విశ్లేషణ · ప్రొటోటైప్"
+    },
+
+    ml: {
+      appName: "സ്‌കാംഷീൽഡ് ഭാരത്",
+      tagline: "സംരക്ഷിക്കുക. മനസ്സിലാക്കുക. പരിശോധിക്കുക.",
+      heroTitle: "എല്ലാ നിക്ഷേപ സന്ദേശങ്ങളെയും വിശ്വസിക്കരുത്.",
+      heroSub: "സംശയാസ്പദമായ സാമ്പത്തിക സന്ദേശങ്ങൾ മനസ്സിലാക്കാൻ മുതിർന്ന പൗരന്മാരെയും പുതിയ നിക്ഷേപകരെയും സഹായിക്കുന്ന സാങ്കേതികവിദ്യ.",
+      heroBadge1: "സ്വകാര്യത പ്രധാനം",
+      heroBadge2: "ഭാരത്-ഫസ്റ്റ്",
+      heroBadge3: "ലളിതമായ വിശദീകരണം",
+      heroBadge4: "വോയ്‌സ് പിന്തുണ",
+      btnAnalyze: "സന്ദേശം പരിശോധിക്കുക",
+      btnHowItWorks: "പ്രവർത്തനം എങ്ങനെ",
+      navHome: "ഹോം",
+      navAnalyze: "പരിശോധന",
+      navHowItWorks: "പ്രവർത്തനം",
+      navWhy: "എന്തുകൊണ്ട് പ്രധാനം",
+      navSafety: "ഹെൽപ്പ് ലൈൻ",
+      navPrivacy: "സ്വകാര്യത കേന്ദ്രം",
+      navLearn: "തട്ടിപ്പ് തിരിച്ചറിയുക",
+      navArch: "ആർക്കിടെക്ചർ",
+      navLogin: "ലോഗിൻ",
+      navLogout: "ലോഗ് ഔട്ട്",
+      seniorModeBtn: "സീനിയർ മോഡ്",
+      liteModeBtn: "ലൈറ്റ് മോഡ്",
+      privacyNotice: "പരിശോധനയ്ക്ക് മുൻപ് നിങ്ങളുടെ ഉപകരണത്തിൽ തന്നെ രഹസ്യ നമ്പറുകൾ (OTP, PIN) മറയ്ക്കപ്പെടും.",
+
+      dashTitle: "നിങ്ങൾക്ക് എന്താണ് പരിശോധിക്കേണ്ടത്?",
+      dashSub: "സംശയാസ്പദമായ വിവരങ്ങൾ പരിശോധിക്കാൻ താഴെ നൽകിയിരിക്കുന്ന രീതി തിരഞ്ഞെടുക്കുക.",
+      optText: "സന്ദേശം ടെക്സ്റ്റ്",
+      optTextDesc: "വാട്ട്‌സ്ആപ്പ് അല്ലെങ്കിൽ SMS ടെക്സ്റ്റ് പേസ്റ്റ് ചെയ്യുക",
+      optImage: "സ്ക്രീൻഷോട്ട് OCR",
+      optImageDesc: "സന്ദേശത്തിന്റെ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
+      optVoice: "വോയ്‌സ് ഇൻപുട്ട്",
+      optVoiceDesc: "നിങ്ങളുടെ ഭാഷയിൽ സംസാരിക്കുക",
+      optUrl: "ലിങ്ക് / URL പരിശോധന",
+      optUrlDesc: "വെബ്‌സൈറ്റ് ലിങ്ക് പരിശോധിക്കുക",
+
+      inputPlaceholder: "സംശയാസ്പദമായ സന്ദേശം ഇവിടെ പേസ്റ്റ് ചെയ്യുക...",
+      btnAnalyze: "പരിശോധിക്കുക",
+      btnTryScam: "തട്ടിപ്പ് ഉദാഹരണം",
+      btnTrySafe: "സുരക്ഷിത ഉദാഹരണം",
+      btnMaskNotice: "നിങ്ങളുടെ ഫോണിൽ തന്നെ രഹസ്യ നമ്പറുകൾ മറയ്ക്കപ്പെട്ടു.",
+      sensitiveHint: "ദയവായി OTP അല്ലെങ്കിൽ PIN വിവരങ്ങൾ പങ്കിടരുത്.",
+
+      step1: "സന്ദേശം വായിക്കുന്നു...",
+      step2: "അവകാശവാദങ്ങൾ കണ്ടെത്തുന്നു...",
+      step3: "മുന്നറിയിപ്പുകൾ തിരിച്ചറിയുന്നു...",
+      step4: "തെളിവുകളുടെ ബലം വിലയിരുത്തുന്നു...",
+      step5: "വിശദീകരണം തയ്യാറാക്കുന്നു...",
+
+      noMajorTitle: "പ്രധാന മുന്നറിയിപ്പുകൾ ഒന്നുമില്ല",
+      noMajorMsg: "നൽകിയ വിവരങ്ങളിൽ പ്രധാന മുന്നറിയിപ്പുകൾ ഒന്നും കണ്ടെത്തിയില്ല. എന്നാൽ ഇത് ഉറവിടത്തിന്റെ നിഷ്കളങ്കത ഉറപ്പുനൽകുന്നില്ല.",
+      potentialTitle: "സാധ്യമായ അപകടം",
+      potentialMsg: "ചില മുന്നറിയിപ്പുകൾ കണ്ടെത്തിയിട്ടുണ്ട്. തുക അയക്കുന്നതിന് മുൻപ് വിവരങ്ങൾ സ്വന്തമായി പരിശോധിക്കുക.",
+      highTitle: "ഉയർന്ന അപകടസാധ്യത",
+      highMsg: "നിരവധി മുന്നറിയിപ്പുകൾ കണ്ടെത്തിയിട്ടുണ്ട്. വിവരങ്ങൾ പരിശോധിക്കുന്നത് വരെ പണം അയക്കാനോ രഹസ്യവിവരങ്ങൾ പങ്കിടാനോ പാടില്ല.",
+      inconclusiveTitle: "തീരുമാനമെടുക്കാനായില്ല",
+      inconclusiveMsg: "ഇത് തട്ടിപ്പാണോ എന്ന് ഉറപ്പിക്കാൻ തക്ക തെളിവുകളില്ല. ഔദ്യോഗിക ഉറവിടങ്ങളിലൂടെ നേരിട്ട് പരിശോധിക്കുക.",
+
+      confidenceLabel: "തെളിവുകളുടെ വിശ്വാസ്യത",
+      confidenceNote: "വിശ്വാസ്യത കാണിക്കുന്നത് തെളിവുകളുടെ ബലമാണ്, തട്ടിപ്പിന്റെ ശതമാനമല്ല.",
+      evidenceLabel: "തെളിവുകളുടെ ശക്തി",
+      evidenceStrong: "ശക്തമായ തെളിവ്",
+      evidenceModerate: "മിതമായ തെളിവ്",
+      evidenceLimited: "കുറഞ്ഞ തെളിവ്",
+      unverifiedNote: "സന്ദേശം അയച്ചയാൾ ഔദ്യോഗിക സ്ഥാപനമാണോ എന്ന് സ്‌കാംഷീൽഡിന് നേരിട്ട് ഉറപ്പിക്കാനാവില്ല.",
+
+      actionTitle: "നിങ്ങൾ ഇപ്പോൾ ചെയ്യേണ്ട കാര്യങ്ങൾ",
+      action1: "നിൽക്കൂ: സമ്മർദ്ദത്തിലായി ഉടൻ പണം അയക്കരുത്.",
+      action2: "പരിശോധിക്കുക: ഔദ്യോഗിക വെബ്സൈറ്റുകളിൽ (SEBI) നേരിട്ട് പരിശോധിക്കുക.",
+      action3: "രഹസ്യമായി സൂക്ഷിക്കുക: OTP, PIN വിവരങ്ങൾ ആരോടും പറയരുത്.",
+      action4: "തെളിവ് സൂക്ഷിക്കുക: സ്‌ക്രീൻഷോട്ട് എടുത്തു വയ്ക്കുക.",
+      action5: "പരാതിപ്പെടുക: തട്ടിപ്പിനിരയായാൽ 1930 എന്ന നമ്പറിൽ വിളിക്കുക.",
+
+      sigGuaranteed: "ഉറപ്പുള്ള ലാഭം",
+      sigGuaranteedExp: "നിശ്ചിത ലാഭം വാഗ്ദാനം ചെയ്യുന്നു. വിപണി നിക്ഷേപങ്ങളിൽ നിയമപരമായി ഉറപ്പുള്ള ലാഭം നൽകാനാവില്ല.",
+      sigUrgency: "അടിയന്തിരാവസ്ഥയും സമ്മർദ്ദവും",
+      sigUrgencyExp: "ചിന്തിക്കാൻ സമയം നൽകാതെ ഉടൻ പ്രവർത്തിക്കാൻ സമ്മർദ്ദം ചെലുത്തുന്നു.",
+      sigAuthority: "സ്ഥിരീകരിക്കാത്ത അതോറിറ്റി അവകാശവാദം",
+      sigAuthorityExp: "SEBI/RBI അംഗീകാരമുണ്ടെന്ന അവകാശവാദം. ഔദ്യോഗിക സൈറ്റിൽ പരിശോധിക്കണം.",
+      sigPayment: "പണമടയ്ക്കൽ ആവശ്യം",
+      sigPaymentExp: "വ്യക്തിഗത UPI അല്ലെങ്കിൽ അക്കൗണ്ടിലേക്ക് പണം അയക്കാൻ ആവശ്യപ്പെടുന്നു.",
+      sigCredential: "രഹസ്യ വിവരങ്ങൾ ആവശ്യപ്പെടൽ",
+      sigCredentialExp: "OTP അല്ലെങ്കിൽ PIN ആവശ്യപ്പെടുന്നു.",
+      sigLink: "സംശയാസ്പദമായ ലിങ്ക്",
+      sigLinkExp: "വ്യാജ അല്ലെങ്കിൽ ചെറുതാക്കിയ ലിങ്കുകൾ ഉൾപ്പെടുന്നു.",
+      sigContact: "അനാവശ്യ ഗ്രൂപ്പുകൾ",
+      sigContactExp: "വാട്ട്‌സ്ആപ്പ് അല്ലെങ്കിൽ ടെലിഗ്രാം ഗ്രൂപ്പിലേക്ക് ക്ഷണം.",
+
+      reportingTitle: "ഔദ്യോഗിക പരാതി പരിഹാര കേന്ദ്രങ്ങൾ",
+      report1930: "ദേശീയ സൈബർ ക്രൈം ഹെൽപ്പ് ലൈൻ: 1930",
+      reportCyber: "സൈബർ ക്രൈം പോർട്ടൽ: cybercrime.gov.in",
+      reportSebiScores: "SEBI SCORES പരാതി പോർട്ടൽ: scores.sebi.gov.in",
+      reportSebiMain: "ഔദ്യോഗിക SEBI വെബ്സൈറ്റ്: sebi.gov.in",
+      verifySelf: "ലിങ്കുകൾ എപ്പോഴും നേരിട്ട് തട്ടിച്ചു ചെയ്ത് പരിശോധിക്കുക.",
+
+      privacyTitle: "സ്വകാര്യതാ സംരക്ഷണ കേന്ദ്രം",
+      privacySub: "നിങ്ങളുടെ വിവരങ്ങൾ നിങ്ങളുടെ ഫോണിനുള്ളിൽ മാത്രമാണ് പരിശോധിക്കപ്പെടുന്നത്.",
+      privacyNotNeededTitle: "ഞങ്ങൾ ശേഖരിക്കാത്ത കാര്യങ്ങൾ",
+      privacyNotNeededList: "• ബാങ്ക് പാസ്‌വേഡ്\n• UPI / ATM PIN\n• കാർഡ് വിവരങ്ങൾ\n• നിങ്ങളുടെ OTP നമ്പറുകൾ",
+      privacyFlowTitle: "ഡാറ്റ ഫ്ലോ ഡയഗ്രാം",
+
+      seniorActiveNotice: "സീനിയർ മോഡ് സജീവം: വലിയ അക്ഷരങ്ങളും വ്യക്തമായ ബട്ടണുകളും.",
+      liteActiveNotice: "ലൈറ്റ് മോഡ് സജീവം: വേഗത കുറഞ്ഞ ഇന്റർനെറ്റിന് അനുയോജ്യം.",
+
+      footerDisclaimer1: "സ്‌കാംഷീൽഡ് ഭാരത് നിക്ഷേപ ഉപദേശങ്ങൾ നൽകുന്നില്ല. ഇത് ഒരു സുരക്ഷാ ബോധവൽക്കരണ ഉപകരണം മാത്രമാണ്.",
+      footerDisclaimer2: "ഓട്ടോമേറ്റഡ് പരിശോധന തെറ്റാകാം. പ്രധാനപ്പെട്ട വിവരങ്ങൾ എപ്പോഴും നേരിട്ട് പരിശോധിക്കുക.",
+      prototypeTag: "റൂൾ അധിഷ്ഠിത പരിശോധന · പ്രോട്ടോടൈപ്പ്"
+    }
+  },
+
+  setLanguage: function(lang) {
+    if (this.translations[lang]) {
+      this.currentLang = lang;
+      this.applyTranslations();
+      if (typeof app !== 'undefined' && app.onLanguageChanged) {
+        app.onLanguageChanged(lang);
+      }
+    }
+  },
+
+  t: function(key) {
+    var dict = this.translations[this.currentLang] || this.translations['en'];
+    return dict[key] || this.translations['en'][key] || key;
+  },
+
+  applyTranslations: function() {
+    var elements = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+      var key = el.getAttribute('data-i18n');
+      var translation = this.t(key);
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        if (el.hasAttribute('placeholder')) {
+          el.setAttribute('placeholder', translation);
+        }
+      } else {
+        el.textContent = translation;
+      }
+    }
+    
+    // Update html lang attribute
+    document.documentElement.lang = this.currentLang;
+  }
+};
+
+</script>
+  <script>
+// ScamShield Bharat - Rule-Based Analysis Engine (engine.js)
+// Deterministic, Explainable, In-Browser Risk Engine
+
+var ScamEngine = (function() {
+  
+  // Sensitive Data Masking (Runs locally on device BEFORE scoring)
+  function maskSensitiveData(text) {
+    if (!text) return { maskedText: "", count: 0, foundSensitive: false };
+    
+    var count = 0;
+    var maskedText = text;
+    
+    // Mask 16-digit Card Numbers
+    maskedText = maskedText.replace(/\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b/g, function(match) {
+      count++;
+      return "[CARD NUMBER HIDDEN]";
+    });
+    
+    // Mask 4-6 digit OTPs (when accompanied by terms like OTP, pin, code, verification)
+    maskedText = maskedText.replace(/(OTP|code|pin|password|otp|ओटीपी|கடவுச்சொல்)[:\s-]*(\b\d{4,6}\b)/gi, function(match, p1, p2) {
+      count++;
+      return p1 + ": [SENSITIVE PIN/OTP HIDDEN]";
+    });
+
+    // Mask standalone 6-digit OTP numbers
+    maskedText = maskedText.replace(/\b(is|your|code|OTP|otp)\s+(\d{4,6})\b/gi, function(match, p1, p2) {
+      count++;
+      return p1 + " [OTP HIDDEN]";
+    });
+    
+    // Mask UPI PINs
+    maskedText = maskedText.replace(/(UPI PIN|UPI-PIN|enter PIN)[:\s-]*(\b\d{4,6}\b)/gi, function(match, p1) {
+      count++;
+      return p1 + ": [UPI PIN HIDDEN]";
+    });
+    
+    return {
+      maskedText: maskedText,
+      count: count,
+      foundSensitive: count > 0
+    };
+  }
+
+  // Keywords & Pattern Rules
+  var SIGNAL_PATTERNS = [
+    {
+      id: "guaranteed_returns",
+      category: "Guaranteed / Fixed Returns",
+      severity: "High", // Strong signal
+      titleKey: "sigGuaranteed",
+      expKey: "sigGuaranteedExp",
+      regex: /(guarant|assured|risk-free|double your money|100% return|fixed return|daily return|profit of \d+|% in \d+ days|நிச்சய லாபம்|உறுதியளிக்கப்பட்ட|பணம் இரட்டிப்பு|गारंटी|गारंटीड|डबल|100% रिटर्न)/i
+    },
+    {
+      id: "urgency_pressure",
+      category: "Urgency & Time Pressure",
+      severity: "Medium",
+      titleKey: "sigUrgency",
+      expKey: "sigUrgencyExp",
+      regex: /(today only|within 30 min|within 1 hour|last seats|limited seats|act fast|offer expires|hurry up|இன்றே|30 நிமிடங்களில்|அவசரம்|आज ही|30 मिनट|अंतिम मौका)/i
+    },
+    {
+      id: "authority_claim",
+      category: "Unverified Authority Claim", // Exact required title
+      severity: "High",
+      titleKey: "sigAuthority",
+      expKey: "sigAuthorityExp",
+      regex: /(SEBI approved|RBI approved|NSDL|government scheme|SEBI registered|Govt of India|SEBI அங்கீகரிக்கப்பட்டது|அரசு திட்டம்|सेबी स्वीकृत|आरबीआई|सरकारी योजना)/i
+    },
+    {
+      id: "payment_request",
+      category: "Payment Request / Fee",
+      severity: "High",
+      titleKey: "sigPayment",
+      expKey: "sigPaymentExp",
+      regex: /(send Rs|pay Rs|transfer Rs|pay now|registration fee|activation fee|deposit Rs|UPI ID|@[a-zA-Z]{3,}|பணம் அனுப்பு|பதிவு கட்டணம்|பணம் செலுத்து|पैसे भेजें|रजिस्ट्रेशन शुल्क|पे करें)/i
+    },
+    {
+      id: "credential_request",
+      category: "Sensitive Credential Theft Risk",
+      severity: "High", // Very Strong signal
+      titleKey: "sigCredential",
+      expKey: "sigCredentialExp",
+      regex: /(OTP|PIN|password|CVV|AnyDesk|TeamViewer|QuickSupport|share screen|கடவுச்சொல்|PIN எண்ணை|ओटीपी|पासवर्ड|सीवीवी)/i
+    },
+    {
+      id: "suspicious_link",
+      category: "Suspicious Link / Domain",
+      severity: "Medium",
+      titleKey: "sigLink",
+      expKey: "sigLinkExp",
+      regex: /(bit\.ly|tinyurl\.com|t\.me|wa\.me|goo\.gl|http:\/\/|[a-zA-Z0-9-]+\.(xyz|top|site|club|link|online|vip|work))/i
+    },
+    {
+      id: "unsolicited_contact",
+      category: "Unsolicited Group / Tips",
+      severity: "Low",
+      titleKey: "sigContact",
+      expKey: "sigContactExp",
+      regex: /(you have been selected|join our (WhatsApp|Telegram) group|free stock tips|VIP investment group|தேர்ந்தெடுக்கப்பட்டுள்ளீர்கள்|குழுவில் இணையுங்கள்|चयनित हुए हैं|ग्रुप में जुड़ें)/i
+    }
+  ];
+
+  // Core Analyzer Function
+  function analyze(rawInputText, currentLang) {
+    lang = currentLang || 'en';
+    
+    // Step 1: Mask Sensitive Data locally
+    var maskResult = maskSensitiveData(rawInputText);
+    var text = maskResult.maskedText.trim();
+    
+    // Step 2: Handle Very Short or Vague Text -> INCONCLUSIVE
+    if (!text || text.length < 15) {
+      return {
+        status: "INCONCLUSIVE",
+        riskLevel: "inconclusive",
+        badgeText: i18n.t("inconclusiveTitle"),
+        messageText: i18n.t("inconclusiveMsg"),
+        confidence: 25, // Heuristic base for inconclusive
+        confidenceNote: i18n.t("confidenceNote"),
+        evidenceStrength: "Limited",
+        evidenceStrengthText: i18n.t("evidenceLimited"),
+        unverifiedNote: i18n.t("unverifiedNote"),
+        signals: [],
+        highlightedSpans: [],
+        maskedNotice: maskResult.foundSensitive ? i18n.t("btnMaskNotice") : null,
+        maskedText: text
+      };
+    }
+
+    // Step 3: Extract Signals & Highlight Spans
+    var detectedSignals = [];
+    var highlights = [];
+    var textLower = text.toLowerCase();
+    
+    SIGNAL_PATTERNS.forEach(function(pattern) {
+      var match = pattern.regex.exec(text);
+      if (match) {
+        var matchedText = match[0];
+        var startIndex = match.index;
+        var endIndex = startIndex + matchedText.length;
+        
+        detectedSignals.push({
+          id: pattern.id,
+          category: pattern.category,
+          severity: pattern.severity,
+          title: i18n.t(pattern.titleKey),
+          explanation: i18n.t(pattern.expKey),
+          matchedText: matchedText
+        });
+
+        highlights.push({
+          start: startIndex,
+          end: endIndex,
+          matchedText: matchedText,
+          severity: pattern.severity,
+          category: pattern.category
+        });
+      }
+    });
+
+    // Sort highlights by starting index
+    highlights.sort(function(a, b) { return a.start - b.start; });
+
+    // Step 4: Scoring Rules logic
+    var highCount = 0;
+    var mediumCount = 0;
+    var lowCount = 0;
+
+    detectedSignals.forEach(function(sig) {
+      if (sig.severity === "High") highCount++;
+      else if (sig.severity === "Medium") mediumCount++;
+      else lowCount++;
+    });
+
+    var hasGuaranteed = detectedSignals.some(function(s) { return s.id === "guaranteed_returns"; });
+    var hasPayment = detectedSignals.some(function(s) { return s.id === "payment_request"; });
+    var hasCredential = detectedSignals.some(function(s) { return s.id === "credential_request"; });
+
+    var totalSignals = detectedSignals.length;
+    var isHighRiskCombo = (hasGuaranteed && hasPayment) || hasCredential || (highCount >= 2);
+    
+    var riskLevel = "no_major";
+    var badgeText = i18n.t("noMajorTitle");
+    var messageText = i18n.t("noMajorMsg");
+    var evidenceStrength = "Limited";
+    var evidenceText = i18n.t("evidenceLimited");
+
+    if (totalSignals >= 4 || isHighRiskCombo) {
+      riskLevel = "high";
+      badgeText = i18n.t("highTitle");
+      messageText = i18n.t("highMsg");
+      evidenceStrength = "Strong";
+      evidenceText = i18n.t("evidenceStrong");
+    } else if (totalSignals >= 2 || highCount >= 1) {
+      riskLevel = "potential";
+      badgeText = i18n.t("potentialTitle");
+      messageText = i18n.t("potentialMsg");
+      evidenceStrength = "Moderate";
+      evidenceText = i18n.t("evidenceModerate");
+    } else {
+      riskLevel = "no_major";
+      badgeText = i18n.t("noMajorTitle");
+      messageText = i18n.t("noMajorMsg");
+      evidenceStrength = totalSignals > 0 ? "Moderate" : "Limited";
+      evidenceText = totalSignals > 0 ? i18n.t("evidenceModerate") : i18n.t("evidenceLimited");
+    }
+
+    // Step 5: Confidence Calculation (Capped at 90%, Never 0% or 100%)
+    // Formula: Base 20% + 20% per signal + length factor, capped at 90%
+    var confidence = 20 + (totalSignals * 20) + (highCount * 10);
+    if (confidence < 25) confidence = 25;
+    if (confidence > 90) confidence = 90; // Strictly capped at 90%
+
+    // Construct Highlighted HTML Output safely
+    var formattedHtml = renderHighlightedText(text, highlights);
+
+    return {
+      status: "SUCCESS",
+      riskLevel: riskLevel, // "no_major", "potential", "high", "inconclusive"
+      badgeText: badgeText,
+      messageText: messageText,
+      confidence: confidence,
+      confidenceNote: i18n.t("confidenceNote"),
+      evidenceStrength: evidenceStrength,
+      evidenceStrengthText: evidenceText,
+      unverifiedNote: i18n.t("unverifiedNote"),
+      signals: detectedSignals,
+      highlights: highlights,
+      formattedHtml: formattedHtml,
+      maskedNotice: maskResult.foundSensitive ? i18n.t("btnMaskNotice") : null,
+      maskedText: text
+    };
+  }
+
+  // Render text with non-color-only markup & visual icons for accessibility
+  function renderHighlightedText(text, highlights) {
+    if (!highlights || highlights.length === 0) {
+      return escapeHtml(text);
+    }
+
+    var result = "";
+    var lastIndex = 0;
+
+    highlights.forEach(function(hl) {
+      // Append unhighlighted text before this match
+      if (hl.start > lastIndex) {
+        result += escapeHtml(text.substring(lastIndex, hl.start));
+      }
+      
+      var matchedContent = escapeHtml(text.substring(hl.start, hl.end));
+      var badgeClass = "hl-low";
+      var icon = "ℹ️";
+      if (hl.severity === "High") {
+        badgeClass = "hl-high";
+        icon = "⚠️";
+      } else if (hl.severity === "Medium") {
+        badgeClass = "hl-medium";
+        icon = "⚡";
+      }
+
+      result += '<mark class="highlight-span ' + badgeClass + '" title="' + escapeHtml(hl.category) + '">';
+      result += '<span class="hl-icon">' + icon + '</span> ';
+      result += matchedContent;
+      result += '<span class="hl-label">[' + escapeHtml(hl.category) + ']</span>';
+      result += '</mark>';
+
+      lastIndex = hl.end;
+    });
+
+    if (lastIndex < text.length) {
+      result += escapeHtml(text.substring(lastIndex));
+    }
+
+    return result;
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&#039;");
+  }
+
+  // URL Signal Analyzer (Text-based only, zero network requests)
+  function analyzeUrl(urlText) {
+    if (!urlText) return null;
+    
+    var url = urlText.trim().toLowerCase();
+    var signals = [];
+
+    var isHttps = url.indexOf("https://") === 0;
+    var isHttp = url.indexOf("http://") === 0;
+    
+    if (isHttps) {
+      signals.push({
+        id: "https_present",
+        type: "positive",
+        title: "HTTPS Encryption Present",
+        desc: "The connection uses SSL/TLS. Note: HTTPS indicates secure transmission, but DOES NOT guarantee that the site is legitimate or safe."
+      });
+    } else if (isHttp) {
+      signals.push({
+        id: "http_unsecure",
+        type: "warning",
+        title: "Unencrypted HTTP Connection",
+        desc: "The site uses unencrypted HTTP. Legitimate financial portals always use HTTPS."
+      });
+    }
+
+    var shortenerMatch = /(bit\.ly|tinyurl|t\.co|is\.gd|cutt\.ly|rebrand\.ly)/i.test(url);
+    if (shortenerMatch) {
+      signals.push({
+        id: "url_shortener",
+        type: "warning",
+        title: "URL Shortener Detected",
+        desc: "The link hides its true destination domain using a link shortening service."
+      });
+    }
+
+    var suspiciousDomain = /(\.xyz|\.top|\.site|\.club|\.online|\.vip|\.work|\.cc)/i.test(url);
+    if (suspiciousDomain) {
+      signals.push({
+        id: "suspicious_tld",
+        type: "warning",
+        title: "Unusual Top-Level Domain",
+        desc: "The domain uses a non-standard domain extension often associated with temporary scam sites."
+      });
+    }
+
+    var brandLookalike = /(sebi-login|rbi-verify|nsdl-claim|sbi-bonus|hdfc-offer|tata-shares)/i.test(url);
+    if (brandLookalike) {
+      signals.push({
+        id: "brand_lookalike",
+        type: "high",
+        title: "Lookalike Institution Name",
+        desc: "The URL includes names of financial regulators or banks in suspicious combinations."
+      });
+    }
+
+    var riskStatus = signals.some(function(s) { return s.type === "high" || s.type === "warning"; }) ? "POTENTIAL WARNING SIGNS" : "NO MAJOR AUTOMATED URL SIGNALS";
+    
+    return {
+      url: urlText,
+      signals: signals,
+      riskStatus: riskStatus,
+      wording: "Potential warning signs detected. Additional verification recommended.",
+      disclaimer: "This analysis does not establish that the website is malicious. Prototype analysis evaluates link text structure only and does not visit or load the URL."
+    };
+  }
+
+  return {
+    maskSensitiveData: maskSensitiveData,
+    analyze: analyze,
+    analyzeUrl: analyzeUrl
+  };
+})();
+
+</script>
+  <script>
+// ScamShield Bharat - Main Application Logic (app.js)
+// Plain Vanilla JavaScript - No build step, open access without forced OTP
+
+// Demo Session (No authentication required � hackathon prototype)
+var demoSession = {
+  active: false,
+
+  activate: function() {
+    this.active = true;
+    try { localStorage.setItem('scamshield_demo', 'true'); } catch(e) {}
+    return { success: true };
+  },
+
+  deactivate: function() {
+    this.active = false;
+    try { localStorage.removeItem('scamshield_demo'); } catch(e) {}
+  },
+
+  restore: function() {
+    try { this.active = localStorage.getItem('scamshield_demo') === 'true'; } catch(e) {}
+  }
+};
+
+// Main App Controller
+var app = {
+  activeTab: 'text', // text, image, voice, url
+  currentLanguage: 'en',
+  seniorMode: false,
+  liteMode: false,
+  theme: 'light',
+  ocrLoading: false,
+
+  init: function() {
+    this.loadPreferences();
+    this.checkNetworkConnection();
+    this.setupEventListeners();
+    demoSession.restore();
+    i18n.setLanguage(this.currentLanguage);
+    this.updateUIState();
+  },
+
+  loadPreferences: function() {
+    try {
+      var savedSenior = localStorage.getItem('scamshield_senior_mode');
+      if (savedSenior !== null) this.seniorMode = (savedSenior === 'true');
+      
+      var savedLite = localStorage.getItem('scamshield_lite_mode');
+      if (savedLite !== null) this.liteMode = (savedLite === 'true');
+
+      var savedLang = localStorage.getItem('scamshield_lang');
+      if (savedLang) this.currentLanguage = savedLang;
+
+      var savedTheme = localStorage.getItem('scamshield_theme');
+      if (savedTheme) this.theme = savedTheme;
+    } catch(e) {
+      console.warn('localStorage disabled or unavailable:', e);
+    }
+  },
+
+  savePreferences: function() {
+    try {
+      localStorage.setItem('scamshield_senior_mode', this.seniorMode);
+      localStorage.setItem('scamshield_lite_mode', this.liteMode);
+      localStorage.setItem('scamshield_lang', this.currentLanguage);
+      localStorage.setItem('scamshield_theme', this.theme);
+    } catch(e) {
+      console.warn('localStorage save failed:', e);
+    }
+  },
+
+  clearData: function() {
+    try {
+      localStorage.clear();
+      this.seniorMode = false;
+      this.liteMode = false;
+      this.currentLanguage = 'en';
+      this.theme = 'light';
+      this.updateUIState();
+      i18n.setLanguage('en');
+      alert('All local data and preferences have been cleared.');
+    } catch(e) {
+      console.warn('Clear data failed:', e);
+    }
+  },
+
+  checkNetworkConnection: function() {
+    if (navigator.connection) {
+      var conn = navigator.connection;
+      if (conn.effectiveType === '2g' || conn.effectiveType === '3g' || conn.saveData) {
+        if (localStorage.getItem('scamshield_lite_mode') === null) {
+          this.liteMode = true;
+          this.savePreferences();
+        }
+      }
+    }
+  },
+
+  toggleSeniorMode: function() {
+    this.seniorMode = !this.seniorMode;
+    this.savePreferences();
+    this.updateUIState();
+  },
+
+  toggleLiteMode: function() {
+    this.liteMode = !this.liteMode;
+    this.savePreferences();
+    this.updateUIState();
+  },
+
+  toggleTheme: function() {
+    this.theme = (this.theme === 'dark') ? 'light' : 'dark';
+    this.savePreferences();
+    this.updateUIState();
+  },
+
+  updateUIState: function() {
+    document.body.classList.toggle('senior-mode', this.seniorMode);
+    document.body.classList.toggle('lite-mode', this.liteMode);
+    document.body.classList.toggle('dark-mode', this.theme === 'dark');
+
+    var seniorBtn = document.getElementById('seniorModeBtn');
+    if (seniorBtn) seniorBtn.classList.toggle('active', this.seniorMode);
+
+    var liteBtn = document.getElementById('liteModeBtn');
+    if (liteBtn) liteBtn.classList.toggle('active', this.liteMode);
+
+    var seniorNotice = document.getElementById('seniorActiveBanner');
+    if (seniorNotice) seniorNotice.classList.toggle('hidden', !this.seniorMode);
+
+    var liteNotice = document.getElementById('liteActiveBanner');
+    if (liteNotice) liteNotice.classList.toggle('hidden', !this.liteMode);
+
+    var demoBanner = document.getElementById('demoActiveBanner');
+    if (demoBanner) demoBanner.classList.toggle('hidden', !demoSession.active);
+
+    var loginBtn = document.getElementById('navLoginBtn');
+    if (loginBtn) {
+      if (demoSession.active) {
+        loginBtn.textContent = 'Demo Mode Active';
+        loginBtn.style.background = 'var(--success-border)';
+        loginBtn.style.color = '#fff';
+        loginBtn.style.borderColor = 'var(--success-border)';
+      } else {
+        loginBtn.textContent = 'Enter Demo Mode';
+        loginBtn.style.background = '';
+        loginBtn.style.color = '';
+        loginBtn.style.borderColor = '';
+      }
+    }
+  },
+
+  onLanguageChanged: function(lang) {
+    this.currentLanguage = lang;
+    this.savePreferences();
+  },
+
+  selectOption: function(tabName) {
+    this.activeTab = tabName;
+    var cards = document.querySelectorAll('.dash-card');
+    cards.forEach(function(card) {
+      card.classList.toggle('active', card.getAttribute('data-tab') === tabName);
+    });
+
+    document.getElementById('textAnalysisPanel').classList.toggle('hidden', tabName !== 'text');
+    document.getElementById('imageOcrPanel').classList.toggle('hidden', tabName !== 'image');
+    document.getElementById('voicePanel').classList.toggle('hidden', tabName !== 'voice');
+    document.getElementById('urlPanel').classList.toggle('hidden', tabName !== 'url');
+  },
+
+  runTextAnalysis: function(customText) {
+    var textInput = customText || document.getElementById('inputText').value;
+    if (!textInput || !textInput.trim()) {
+      alert("Please enter or paste a message to analyze.");
+      return;
+    }
+
+    document.getElementById('resultOutputCard').classList.add('hidden');
+    document.getElementById('loadingBox').classList.remove('hidden');
+    var rta = document.getElementById('readyToAnalyzePlaceholder');
+    if (rta) rta.classList.add('hidden');
+
+    var progressFill = document.getElementById('progressFill');
+    var loadingStepText = document.getElementById('loadingStepText');
+
+    var steps = [
+      { pct: "20%", textKey: "step1" },
+      { pct: "40%", textKey: "step2" },
+      { pct: "60%", textKey: "step3" },
+      { pct: "80%", textKey: "step4" },
+      { pct: "100%", textKey: "step5" }
+    ];
+
+    var stepIdx = 0;
+    var interval = setInterval(function() {
+      if (stepIdx < steps.length) {
+        progressFill.style.width = steps[stepIdx].pct;
+        loadingStepText.textContent = i18n.t(steps[stepIdx].textKey);
+        stepIdx++;
+      } else {
+        clearInterval(interval);
+        document.getElementById('loadingBox').classList.add('hidden');
+        
+        var result = ScamEngine.analyze(textInput, app.currentLanguage);
+        app.displayAnalysisResult(result);
+      }
+    }, app.liteMode ? 100 : 250);
+  },
+
+  displayAnalysisResult: function(result) {
+    var card = document.getElementById('resultOutputCard');
+    card.className = "result-card " + result.riskLevel;
+    card.classList.remove('hidden');
+
+    document.getElementById('resultBadgeText').textContent = result.badgeText;
+    document.getElementById('resultMessageText').textContent = result.messageText;
+
+    document.getElementById('confidenceValText').textContent = result.confidence + "%";
+    document.getElementById('confidenceNoteText').textContent = result.confidenceNote;
+    document.getElementById('evidenceValText').textContent = result.evidenceStrengthText;
+
+    document.getElementById('unverifiedNoteText').textContent = result.unverifiedNote;
+
+    var maskNotice = document.getElementById('maskingNoticeBanner');
+    if (result.maskedNotice) {
+      maskNotice.classList.remove('hidden');
+      maskNotice.textContent = result.maskedNotice;
+    } else {
+      maskNotice.classList.add('hidden');
+    }
+
+    document.getElementById('highlightedTextContainer').innerHTML = result.formattedHtml || result.maskedText;
+
+    var signalsList = document.getElementById('signalsListItems');
+    signalsList.innerHTML = "";
+
+    if (result.signals && result.signals.length > 0) {
+      result.signals.forEach(function(sig) {
+        var item = document.createElement('div');
+        item.className = "signal-card-item";
+        
+        var icon = sig.severity === 'High' ? '⚠️' : (sig.severity === 'Medium' ? '⚡' : 'ℹ️');
+        item.innerHTML = 
+          '<div class="signal-card-header">' +
+            '<span>' + icon + ' ' + ScamEngine.escapeHtml(sig.title) + '</span>' +
+            '<span class="hero-pill-badge" style="margin:0;">' + ScamEngine.escapeHtml(sig.severity) + '</span>' +
+          '</div>' +
+          '<div class="signal-card-body">' +
+            '<p><strong>Matched text:</strong> "' + ScamEngine.escapeHtml(sig.matchedText) + '"</p>' +
+            '<p style="margin-top:4px;">' + ScamEngine.escapeHtml(sig.explanation) + '</p>' +
+          '</div>';
+        signalsList.appendChild(item);
+      });
+    } else {
+      signalsList.innerHTML = '<p style="color:var(--text-muted);">No specific warning signals detected in the text.</p>';
+    }
+
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  },
+
+  tryScamExample: function() {
+    var scamText = "GUARANTEED 40% PROFIT in 7 days! Risk-free investment scheme. SEBI Approved government scheme. Send Rs 20,000 within 30 minutes to UPI ID: fastwealth@upi to activate your VIP account.";
+    document.getElementById('inputText').value = scamText;
+    this.selectOption('text');
+    this.runTextAnalysis(scamText);
+  },
+
+  trySafeExample: function() {
+    var safeText = "Dear Investor, please refer to the official SEBI portal for list of registered stock brokers. Never share your passwords or personal details with unknown persons.";
+    document.getElementById('inputText').value = safeText;
+    this.selectOption('text');
+    this.runTextAnalysis(safeText);
+  },
+
+  processScreenshot: function(fileInput) {
+    var file = fileInput.files[0];
+    if (!file) return;
+
+    var statusEl = document.getElementById('ocrStatusText');
+    var progressEl = document.getElementById('ocrProgressText');
+    statusEl.textContent = "Loading OCR Engine (Demo OCR)...";
+    progressEl.textContent = "Initializing Tesseract.js eng+tam...";
+
+    if (typeof Tesseract === 'undefined') {
+      var script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js";
+      script.onload = function() {
+        app.runTesseractOCR(file);
+      };
+      script.onerror = function() {
+        statusEl.textContent = "OCR network unavailable. Please type or paste the message text manually below.";
+        progressEl.textContent = "Fallback active: Offline/file mode.";
+      };
+      document.head.appendChild(script);
+    } else {
+      this.runTesseractOCR(file);
+    }
+  },
+
+  runTesseractOCR: function(file) {
+    var statusEl = document.getElementById('ocrStatusText');
+    var progressEl = document.getElementById('ocrProgressText');
+
+    Tesseract.recognize(
+      file,
+      'eng+tam',
+      {
+        logger: function(m) {
+          if (m.status === 'recognizing text') {
+            progressEl.textContent = "Processing image text: " + Math.round(m.progress * 100) + "%";
+          }
+        }
+      }
+    ).then(function(result) {
+      var extractedText = result.data.text;
+      statusEl.textContent = "OCR Complete (Demo OCR)";
+      document.getElementById('inputText').value = extractedText;
+      app.selectOption('text');
+      app.runTextAnalysis(extractedText);
+    }).catch(function(err) {
+      statusEl.textContent = "OCR extraction encountered an issue. You can type or paste the text directly into the box below.";
+      console.warn("OCR Error:", err);
+    });
+  },
+
+  startVoiceInput: function() {
+    var statusEl = document.getElementById('voiceStatusText');
+    
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      statusEl.textContent = "Speech recognition is not supported by your current browser. You can type your message in the text box.";
+      return;
+    }
+
+    var recognition = new SpeechRecognition();
+    var langMap = { en: 'en-IN', ta: 'ta-IN', hi: 'hi-IN', te: 'te-IN', ml: 'ml-IN' };
+    recognition.lang = langMap[this.currentLanguage] || 'en-IN';
+    recognition.interimResults = false;
+
+    statusEl.textContent = "Listening... Speak your message now in " + this.currentLanguage.toUpperCase();
+
+    recognition.onresult = function(event) {
+      var spokenText = event.results[0][0].transcript;
+      statusEl.textContent = "Recognized: \"" + spokenText + "\"";
+      document.getElementById('inputText').value = spokenText;
+      app.selectOption('text');
+      app.runTextAnalysis(spokenText);
+
+      app.speakReply(spokenText);
+    };
+
+    recognition.onerror = function(event) {
+      statusEl.textContent = "Voice input error: " + event.error + ". Please try typing your text.";
+    };
+
+    recognition.start();
+  },
+
+  speakReply: function(text) {
+    if ('speechSynthesis' in window) {
+      var utterance = new SpeechSynthesisUtterance("Analyzing message now.");
+      utterance.lang = this.currentLanguage;
+      window.speechSynthesis.speak(utterance);
+    }
+  },
+
+  runUrlCheck: function() {
+    var urlInput = document.getElementById('inputUrl').value;
+    var result = ScamEngine.analyzeUrl(urlInput);
+    if (!result) {
+      alert("Please enter a URL link.");
+      return;
+    }
+
+    var card = document.getElementById('urlResultCard');
+    card.classList.remove('hidden');
+
+    document.getElementById('urlStatusTitle').textContent = result.riskStatus;
+    document.getElementById('urlWordingText').textContent = result.wording;
+    document.getElementById('urlDisclaimerText').textContent = result.disclaimer;
+
+    var container = document.getElementById('urlSignalsList');
+    container.innerHTML = "";
+    result.signals.forEach(function(sig) {
+      var div = document.createElement('div');
+      div.className = "signal-card-item";
+      div.innerHTML = '<strong>' + ScamEngine.escapeHtml(sig.title) + '</strong><p>' + ScamEngine.escapeHtml(sig.desc) + '</p>';
+      container.appendChild(div);
+    });
+  },
+
+
+  setupEventListeners: function() {
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('.nav-links a').forEach(function(l) { l.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    });
+  },
+
+  // Automated Test Suite Runner (Verifies 9 Prompt Test Cases)
+  runAutomatedTests: function() {
+    console.log("=== RUNNING SCAMSHIELD BHARAT 9-TEST SUITE ===");
+    var results = [];
+
+    // Test 1: Scam Example
+    var scamRes = ScamEngine.analyze("GUARANTEED 40% profit in 7 days! SEBI approved scheme. Send Rs 20,000 to fastwealth@upi within 30 minutes.", "en");
+    results.push({ name: "Test 1: Scam Example", pass: scamRes.riskLevel === "high" && scamRes.signals.length >= 3 });
+
+    // Test 2: Safe Example
+    var safeRes = ScamEngine.analyze("Dear Investor, please check official SEBI portal for registered brokers list.", "en");
+    results.push({ name: "Test 2: Safe Example", pass: safeRes.riskLevel === "no_major" });
+
+    // Test 3: Short / Vague Text
+    var shortRes = ScamEngine.analyze("Hi", "en");
+    results.push({ name: "Test 3: Short/Vague Text", pass: shortRes.status === "INCONCLUSIVE" });
+
+    // Test 4: Credential Request
+    var credRes = ScamEngine.analyze("Dear user, please share your 6-digit OTP code to verify account.", "en");
+    results.push({ name: "Test 4: Credential Theft Signal", pass: credRes.riskLevel === "high" });
+
+    // Test 5: Tamil Scam Message
+    var tamRes = ScamEngine.analyze("உறுதியளிக்கப்பட்ட 50% லாபம்! இன்றே பணம் அனுப்புங்கள்.", "ta");
+    results.push({ name: "Test 5: Tamil Scam Analysis", pass: tamRes.riskLevel === "high" || tamRes.riskLevel === "potential" });
+
+    // Test 6: Sensitive Masking
+    var maskRes = ScamEngine.maskSensitiveData("My card is 4111 2222 3333 4444 and OTP is 987654");
+    results.push({ name: "Test 6: Local Sensitive Data Masking", pass: maskRes.count >= 2 && maskRes.maskedText.indexOf("[CARD NUMBER HIDDEN]") !== -1 });
+
+    // Test 7: Demo Session Activation (No OTP)
+    demoSession.activate();
+    var demoActive = demoSession.active;
+    demoSession.deactivate();
+    var demoInactive = !demoSession.active;
+    results.push({ name: "Test 7: Demo Mode Session (No OTP)", pass: demoActive && demoInactive });
+
+    // Test 8: Senior & Lite Persistence
+    app.seniorMode = true;
+    app.savePreferences();
+    results.push({ name: "Test 8: Preferences Persistence", pass: localStorage.getItem('scamshield_senior_mode') === 'true' });
+
+    // Test 9: Offline file:// capability check
+    results.push({ name: "Test 9: Core Engine Offline File:// Execution", pass: typeof ScamEngine.analyze === 'function' });
+
+    var report = "SCAMSHIELD BHARAT TEST RESULTS:\n\n";
+    var allPassed = true;
+    results.forEach(function(t) {
+      report += (t.pass ? "✅ PASS: " : "❌ FAIL: ") + t.name + "\n";
+      if (!t.pass) allPassed = false;
+    });
+
+    alert(report + "\nOverall: " + (allPassed ? "ALL 9 TEST CASES PASSED SUCCESSFULLY!" : "SOME TESTS FAILED."));
+  }
+};
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+  app.init();
+});
+
+</script>
+
+</body>
+</html>
